@@ -8,6 +8,7 @@ $ ->
 	$('#selectLang').click ->
 		animatebox $(this)
 
+	
 
 	
 		

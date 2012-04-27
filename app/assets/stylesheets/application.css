@@ -44,8 +44,13 @@ body{
 }
 
 #detail_view{
-	float:right;
-	margin: 40px 40px 0px 40px;
+	z-index: -5;
+	position: absolute;
+	height: 100%;
+	width: 0%;
+	background: #7A7979;
+	border: 1px solid #000000;
+	right:0px;
 }
 
 button.tech_cat{

@@ -199,7 +199,17 @@ alignleftchart = () ->
 
 addCommas = (nStr) ->
 
+showDetail = (element) ->
+  detail_view = $('#detail_view')
+  detail_view.animate 
+    width: '75%'
+    500
 
+hideDetail = () ->
+  detail_view = $('#detail_view')
+  detail_view.animate 
+    width: '0%'
+    500
 
 
 
@@ -229,15 +239,19 @@ $ ->
   technologyOverview.click ->
     centerchart()
     chart.display_group_all()
+    hideDetail()
   programmingLanguages.click ->
     alignleftchart()
     chart.display_category("2008")
+    showDetail()
   webFrameworks.click ->
     alignleftchart()
     chart.display_category("2009")
+    showDetail()
   contentManagementSystems.click ->
     alignleftchart()
     chart.display_category("2010")
+    showDetail()
 
   d3.csv "data/gates_money.csv", render_vis
 
