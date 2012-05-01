@@ -10,21 +10,21 @@ $ ->
 
 	$('#selectAspect').click ->
 		if aspectbox.selected
-			aspectbox.hidebox()
+			aspectbox.hide()
 		else if !aspectbox.selected && langbox.selected
-			langbox.hidebox()
-			delay 300, -> aspectbox.showbox()			
+			langbox.hide()
+			delay 300, -> aspectbox.show()			
 		else
-			aspectbox.showbox()
+			aspectbox.show()
 		#animatebox $(this),$('#selectboxAspect')
 	$('#selectLang').click ->
 		if langbox.selected
-			langbox.hidebox()
+			langbox.hide()
 		else if !langbox.selected && aspectbox.selected
-			aspectbox.hidebox()
-			delay 300, -> langbox.showbox()	
+			aspectbox.hide()
+			delay 300, -> langbox.show()	
 		else
-			langbox.showbox()
+			langbox.show()
 		#animatebox $(this),$('#selectboxLang')
 
 	
@@ -36,7 +36,7 @@ class Selectbox
 		@selected = false
 		@top = @button.offset().top + 31
 
-	showbox: () => 
+	show: () => 
 		@selected = true
 		@element.addClass "selected"
 		@element.css 'visibility', 'visible'
@@ -51,7 +51,7 @@ class Selectbox
 			height: '194px'
 			options
 
-	hidebox: () =>
+	hide: () =>
 		@selected = false
 		@element.removeClass "selected"
 		box = @element

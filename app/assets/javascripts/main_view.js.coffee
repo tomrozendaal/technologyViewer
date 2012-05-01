@@ -187,29 +187,35 @@ class BubbleChart
     d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.year)).darker())
     @tooltip.hideTooltip()
 
-centerchart = () ->
-  $('#container').animate
-    left: '25%'
-    500
+  aligncenter: () =>
+    $('#container').animate
+      left: '25%'
+      500
 
-alignleftchart = () ->
-  $('#container').animate
-    left: '0%'
-    500
+  alignleft: () =>
+    $('#container').animate
+      left: '0%'
+      500
 
 
-showDetail = (element) ->
-  detail_view = $('#detail_view')
-  detail_view.animate 
-    width: '75%'
-    500
+class Detailview
+  constructor: (element) ->
+    @element = element
+    @selected = false
 
-hideDetail = () ->
-  detail_view = $('#detail_view')
-  detail_view.animate 
-    width: '0%'
-    500
+  show: () => 
+    @selected = true
+    @element.css 'z-index', -5
+    @element.addClass "selected"
+    @element.animate {width: '75%',500 } 
 
+  hide: () =>
+    @selected = false
+    @element.css 'z-index', -10
+    @element.removeClass "selected"
+    @element.animate 
+      width: '0%'
+      500
 
 
 root = exports ? this
@@ -220,6 +226,12 @@ $ ->
   programmingLanguages = $('#programmingLanguages')
   webFrameworks = $('#webFrameworks')
   contentManagementSystems = $('#contentManagementSystems')
+
+  programmingLanguagesView = new Detailview $('#detailviewLang')
+  webFrameworksView = new Detailview $('#detailviewFrame')
+  contentManagementSystemsView = new Detailview $('#detailviewCMS')
+
+  detailviews = [programmingLanguagesView, webFrameworksView, contentManagementSystemsView]
 
   render_vis = (csv) ->
     chart = new BubbleChart csv
@@ -236,21 +248,24 @@ $ ->
       root.display_all()
 
   technologyOverview.click ->
-    centerchart()
+    chart.aligncenter()
     chart.display_group_all()
-    hideDetail()
+    view.hide() for view in detailviews when view.selected is true
   programmingLanguages.click ->
-    alignleftchart()
+    chart.alignleft()
     chart.display_category("2008")
-    showDetail()
+    view.hide() for view in detailviews when view.selected is true and view isnt programmingLanguagesView
+    programmingLanguagesView.show()
   webFrameworks.click ->
-    alignleftchart()
+    chart.alignleft()
     chart.display_category("2009")
-    showDetail()
+    view.hide() for view in detailviews when view.selected is true and view isnt webFrameworksView
+    webFrameworksView.show()
   contentManagementSystems.click ->
-    alignleftchart()
+    chart.alignleft()
     chart.display_category("2010")
-    showDetail()
+    view.hide() for view in detailviews when view.selected is true and view isnt contentManagementSystemsView
+    contentManagementSystemsView.show()
 
   d3.csv "data/gates_money.csv", render_vis
 

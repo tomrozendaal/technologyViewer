@@ -43,7 +43,7 @@ body{
 	
 }
 
-#detail_view{
+#detailviewLang, #detailviewFrame, #detailviewCMS{
 	z-index: -5;
 	position: absolute;
 	height: 100%;
