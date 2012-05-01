@@ -205,13 +205,13 @@ class Detailview
 
   show: () => 
     @selected = true
-    @element.css 'z-index', -5
+    @element.css 'zIndex', 5
     @element.addClass "selected"
     @element.animate {width: '75%',500 } 
 
   hide: () =>
     @selected = false
-    @element.css 'z-index', -10
+    @element.css 'zIndex', 0
     @element.removeClass "selected"
     @element.animate 
       width: '0%'

@@ -1,66 +1,167 @@
-$(document).ready(function () {
-    var data = d3.range(10).map(function(i) {
-      return {x: i * 10, y: i * 10};
+$(function () {
+    var programmingLanguagesChart;
+    var webFrameworksChart;
+    var cmsChart;
+    $(document).ready(function() {
+        programmingLanguagesChart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'langLine',
+                type: 'line'
+            },
+            title: {
+                text: 'Technology development',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Rating'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y;
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Java',
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'PHP',
+                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            }, {
+                name: 'Ruby',
+                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+            }, {
+                name: 'Scala',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+
+        webFrameworksChart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'frameLine',
+                type: 'line'
+            },
+            title: {
+                text: 'Technology development',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Rating'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y;
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Java',
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'PHP',
+                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            }, {
+                name: 'Ruby',
+                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+            }, {
+                name: 'Scala',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+
+        cmsChart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'cmsLine',
+                type: 'line'
+            },
+            title: {
+                text: 'Technology development',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            },
+            yAxis: {
+                title: {
+                    text: 'Rating'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                        return '<b>'+ this.series.name +'</b><br/>'+
+                        this.x +': '+ this.y;
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -10,
+                y: 100,
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Java',
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }, {
+                name: 'PHP',
+                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+            }, {
+                name: 'Ruby',
+                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
+            }, {
+                name: 'Scala',
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }]
+        });
+
+    
+
     });
 
-    var w = 600,
-        h = 275,
-        p = 20,
-        x = d3.scale.linear().domain([0, 100]).range([0, w]),
-        y = d3.scale.linear().domain([0, 100]).range([h, 0]);
-
-    var vis = d3.select("#line")
-        .data([data])
-      .append("svg")
-        .attr("width", w + p * 2)
-        .attr("height", h + p * 2)
-      .append("g")
-        .attr("transform", "translate(" + p + "," + p + ")");
-
-    var rules = vis.selectAll("g.rule")
-        .data(x.ticks(10))
-      .enter().append("g")
-        .attr("class", "rule");
-
-    rules.append("line")
-        .attr("class", function(d) { return d ? null : "axis"; })
-        .attr("x1", x)
-        .attr("x2", x)
-        .attr("y1", 0)
-        .attr("y2", h - 1);
-
-    rules.append("line")
-        .attr("class", function(d) { return d ? null : "axis"; })
-        .attr("y1", y)
-        .attr("y2", y)
-        .attr("x1", 0)
-        .attr("x2", w + 1);
-
-    rules.append("text")
-        .attr("x", x)
-        .attr("y", h + 3)
-        .attr("dy", ".71em")
-        .attr("text-anchor", "middle")
-        .text(x.tickFormat(10));
-
-    rules.append("text")
-        .attr("y", y)
-        .attr("x", -3)
-        .attr("dy", ".35em")
-        .attr("text-anchor", "end")
-        .text(y.tickFormat(10));
-
-    vis.append("path")
-        .attr("class", "line")
-        .attr("d", d3.svg.line()
-        .x(function(d) { return x(d.x); })
-        .y(function(d) { return y(d.y); }));
-
-    vis.selectAll("circle.line")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "line")
-        .attr("cx", function(d) { return x(d.x); })
-        .attr("cy", function(d) { return y(d.y); })
-        .attr("r", 3.5);
+    
 });
