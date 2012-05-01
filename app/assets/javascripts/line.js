@@ -9,7 +9,7 @@ $(function () {
                 type: 'line'
             },
             title: {
-                text: 'Technology development',
+                text: 'Programming Languages developments',
                 x: -20 //center
             },
             xAxis: {
@@ -61,7 +61,7 @@ $(function () {
                 type: 'line'
             },
             title: {
-                text: 'Technology development',
+                text: 'Web Frameworks developments',
                 x: -20 //center
             },
             xAxis: {
@@ -113,7 +113,7 @@ $(function () {
                 type: 'line'
             },
             title: {
-                text: 'Technology development',
+                text: 'Content Management Systems developments',
                 x: -20 //center
             },
             xAxis: {

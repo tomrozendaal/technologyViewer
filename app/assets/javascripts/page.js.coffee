@@ -16,7 +16,6 @@ $ ->
 			delay 300, -> aspectbox.show()			
 		else
 			aspectbox.show()
-		#animatebox $(this),$('#selectboxAspect')
 	$('#selectLang').click ->
 		if langbox.selected
 			langbox.hide()
@@ -25,7 +24,6 @@ $ ->
 			delay 300, -> langbox.show()	
 		else
 			langbox.show()
-		#animatebox $(this),$('#selectboxLang')
 
 	
 	
