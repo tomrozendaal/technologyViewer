@@ -4,7 +4,7 @@ class BubbleChart
     @width = 940
     @height = 600
 
-    #@tooltip = CustomTooltip("gates_tooltip", 240)
+    @tooltip = CustomTooltip("tooltip", 240)
 
     # locations the nodes will move towards
     # depending on which view is currently being
@@ -26,7 +26,7 @@ class BubbleChart
     # nice looking colors - no reason to buck the trend
     @fill_color = d3.scale.ordinal()
       .domain(["low", "medium", "high"])
-      .range(["#d84b2a", "#beccae", "#7aa25c"])
+      .range(["#B0281A", "#2F5BB7", "#2D6200"])
 
     # use the max total_amount in the data as the max in the scale's domain
     max_amount = d3.max(@data, (d) -> parseInt(d.total_amount))
@@ -76,9 +76,9 @@ class BubbleChart
     # see transition below
     @circles.enter().append("circle")
       .attr("r", 0)
-      .attr("fill", (d) => @fill_color(d.group))
+      .attr("fill", (d) => @fill_color(d.year))
       .attr("stroke-width", 2)
-      .attr("stroke", (d) => d3.rgb(@fill_color(d.group)).darker())
+      .attr("stroke", (d) => d3.rgb(@fill_color(d.year)).darker())
       .attr("id", (d) -> "bubble_#{d.id}")
       .on("mouseover", (d,i) -> that.show_details(d,i,this))
       .on("mouseout", (d,i) -> that.hide_details(d,i,this))
@@ -178,14 +178,14 @@ class BubbleChart
   show_details: (data, i, element) =>
     d3.select(element).attr("stroke", "black")
     content = "<span class=\"name\">Title:</span><span class=\"value\"> #{data.name}</span><br/>"
-    content +="<span class=\"name\">Amount:</span><span class=\"value\"> $#{addCommas(data.value)}</span><br/>"
+    content +="<span class=\"name\">Amount:</span><span class=\"value\"> #{data.value}</span><br/>"
     content +="<span class=\"name\">Year:</span><span class=\"value\"> #{data.year}</span>"
-    #@tooltip.showTooltip(content,d3.event)
+    @tooltip.showTooltip(content,d3.event)
 
 
   hide_details: (data, i, element) =>
-    d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.group)).darker())
-    #@tooltip.hideTooltip()
+    d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.year)).darker())
+    @tooltip.hideTooltip()
 
 centerchart = () ->
   $('#container').animate
@@ -197,7 +197,6 @@ alignleftchart = () ->
     left: '0%'
     500
 
-addCommas = (nStr) ->
 
 showDetail = (element) ->
   detail_view = $('#detail_view')

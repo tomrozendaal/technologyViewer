@@ -78,20 +78,75 @@ button.tech_cat{
 }
 
 
-#selectbox{
+#selectboxLang, #selectboxAspect{
 	visibility: hidden;
+	height:0px;
 	width: 228px;
 	border: 1px solid #D9D9D9;
 	background: #FFFFFF;
 	position: absolute;
 }
 
+#selectboxLang ul, #selectboxAspect  ul{
+	padding: 0;
+	margin: 0;
+	list-style-type:none;
+}
+
+#selectboxLang ul > label > li, #selectboxAspect  ul > label > li{
+	padding: 10px;
+	border-bottom: 1px solid #D9D9D9;
+	background-color: #FFFFFF;
+}
+
+label{
+	width: 100%;
+}
+
+#selectboxLang ul > label > li:hover, #selectboxAspect  ul > label > li:hover{
+	background-color: #F3F3F3;
+}
+
+#selectboxLang .checkbox, #selectboxAspect .checkbox{
+	margin-right: 10px;
+}
+
+
+/*******************
+*	Tooltip
+********************/
+.tooltip {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+  -moz-border-radius:5px;
+	border-radius: 5px;
+  border: 2px solid #000;
+	/* background: #222222; */
+  background: #fff;
+	opacity: .9;
+	/* color: #eeeeee; */
+  color: black;
+	padding: 10px;
+	width: 300px;
+	font-size: 12px;
+	z-index: 10;
+}
+
+.tooltip .title {
+	font-size: 13px;
+}
+
+.tooltip .name {
+  font-weight:bold;
+}
 
 
 
-/*------------------------------------*\
-	$BUTTON
-\*------------------------------------*/
+
+/*******************
+*	Button
+********************/
 button, 
 .button {
 	text-decoration: none;
