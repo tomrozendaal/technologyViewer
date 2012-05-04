@@ -61,6 +61,12 @@ body{
 	margin: 0 auto;
 }
 
+#parallel{
+	width:1000px;
+	margin: 0 auto;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif !important;
+}
+
 button.tech_cat{
 	margin: 10px 0px 0px 10px;
 	width:150px;

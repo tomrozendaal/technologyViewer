@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    var margin = {top: 30, right: 10, bottom: 10, left: 10},
-        width = 800 - margin.right - margin.left,
-        height = 400 - margin.top - margin.bottom;
+    var margin = {top: 30, right: 10, bottom: 30, left: 10},
+        width = 1000 - margin.right - margin.left,
+        height = 350 - margin.top - margin.bottom;
 
     var x = d3.scale.ordinal()
         .rangePoints([0, width], 1);
@@ -42,7 +42,8 @@ $(document).ready(function () {
         .selectAll("path")
           .data(cars)
         .enter().append("path")
-          .attr("d", path);
+          .attr("d", path)
+          .attr("style", "stroke:steelblue;");
 
       // Add a group element for each dimension.
       var g = svg.selectAll(".dimension")
@@ -57,7 +58,7 @@ $(document).ready(function () {
           .each(function(d) { d3.select(this).call(axis.scale(y[d])); })
         .append("text")
           .attr("text-anchor", "middle")
-          .attr("y", -9)
+          .attr("y", 310)
           .text(String);
 
       // Add and store a brush for each axis.

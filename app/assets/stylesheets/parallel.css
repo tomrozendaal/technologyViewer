@@ -1,5 +1,9 @@
 svg {
-  font: 10px sans-serif;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #666 !important;
+  fill: #666;
+  line-height: 14px;
 }
 
 .background path {
@@ -11,8 +15,9 @@ svg {
 
 .foreground path {
   fill: none;
-  stroke: steelblue;
-  stroke-opacity: .7;
+  /*stroke: steelblue;*/
+  stroke-opacity: 1;
+  stroke-width: 2;
 }
 
 .brush .extent {
@@ -23,10 +28,10 @@ svg {
 
 .axis line, .axis path {
   fill: none;
-  stroke: #000;
+  stroke: #666;
   shape-rendering: crispEdges;
 }
 
 .axis text {
-  text-shadow: 0 1px 0 #fff;
+  /*text-shadow: 0 1px 0 #fff;*/
 }
