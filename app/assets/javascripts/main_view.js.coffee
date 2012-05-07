@@ -1,8 +1,8 @@
 class BubbleChart
   constructor: (data) ->
     @data = data
-    @width = 940
-    @height = 600
+    @width = $(window).width()
+    @height = $('#container').height() - @width / 22
 
     @tooltip = CustomTooltip("tooltip", 240)
 
@@ -30,7 +30,7 @@ class BubbleChart
 
     # use the max total_amount in the data as the max in the scale's domain
     max_amount = d3.max(@data, (d) -> parseInt(d.total_amount))
-    @radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, 85]) 
+    @radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, @width / 22])
     
     this.create_nodes()
     this.create_vis()
@@ -146,7 +146,7 @@ class BubbleChart
   move_towards_year: (alpha,category) =>
     (d) =>
       if d.year == category
-        @year_centers[d.year] = {x: @width / 4, y: @height / 2}
+        @year_centers[d.year] = {x: @width / 7, y: @height / 2}
       else
         @year_centers[d.year] = {x: -190, y: @height / 2}
 
@@ -187,15 +187,6 @@ class BubbleChart
     d3.select(element).attr("stroke", (d) => d3.rgb(@fill_color(d.year)).darker())
     @tooltip.hideTooltip()
 
-  aligncenter: () =>
-    $('#container').animate
-      left: '25%'
-      500
-
-  alignleft: () =>
-    $('#container').animate
-      left: '0%'
-      500
 
 
 class Detailview
@@ -248,21 +239,17 @@ $ ->
       root.display_all()
 
   technologyOverview.click ->
-    chart.aligncenter()
     chart.display_group_all()
     view.hide() for view in detailviews when view.selected is true
   programmingLanguages.click ->
-    chart.alignleft()
     chart.display_category("2008")
     view.hide() for view in detailviews when view.selected is true and view isnt programmingLanguagesView
     programmingLanguagesView.show()
   webFrameworks.click ->
-    chart.alignleft()
     chart.display_category("2009")
     view.hide() for view in detailviews when view.selected is true and view isnt webFrameworksView
     webFrameworksView.show()
   contentManagementSystems.click ->
-    chart.alignleft()
     chart.display_category("2010")
     view.hide() for view in detailviews when view.selected is true and view isnt contentManagementSystemsView
     contentManagementSystemsView.show()

@@ -1,17 +1,4 @@
-<div id="header">
-	<div class="buttons">
-		<div id="toprow">
-			<button class="action" id="technologyOverview"><span class="label">Technology Overview</span></button>
-			<button class="action blue" id="programmingLanguages"><span class="label">Programming Languages</span></button>
-			<button class="action" id="selectLang"><span class="label">Select languages</span><span class="arrow">&#9660;</span></button>
-		</div>
-		<div id="bottomrow">
-			<button class="action red" id="webFrameworks"><span class="label">Web Frameworks</span></button>
-			<button class="action green" id="contentManagementSystems"><span class="label">Content Management Systems</span></button>
-			<button class="action" id="selectAspect"><span class="label">Select aspects</span><span class="arrow">&#9660;</span></button>
-		</div>	
-	</div>
-</div>
+<%= render 'layouts/header' %>
 
 <div id="main_view">
 	<div id="container" class="container">
@@ -23,13 +10,15 @@
 <div id="detailviews">
 	<div id="detailviewLang">
 		<div id="langLine"></div>
-		<div id="parallel"></div>
+		<div id="parallelLang"></div>
 	</div>
 	<div id="detailviewFrame">
 		<div id="frameLine"></div>
+		<div id="parallelFrame"></div>
 	</div>
 	<div id="detailviewCMS">
 		<div id="cmsLine"></div>
+		<div id="parallelcms"></div>
 	</div>
 </div>
 
@@ -52,14 +41,3 @@
 		<label for="aspect5"><li><input type="checkbox" id="aspect5" class="checkbox" checked/>Sentiment</li></label>
 	</ul>
 </div>
-
-
-<!--
-<button id="size" class="first active">Size</button>
-<button id="count" class="last">Count</button><p>
-
-<div id="detail_view">
-	<div id="line"></div>
-	<div id="parallel"></div>
-</div>
--->
