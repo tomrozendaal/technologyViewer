@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function () {
+	$('#myTab a').click(function (e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	})
+
+	$(function() {
+		$("table#example").tablesorter({ sortList: [[1,0]] });
+	});
+});

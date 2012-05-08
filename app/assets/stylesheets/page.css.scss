@@ -2,5 +2,170 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//@import "bootstrap";
+@import "bootstrap";
+
+$headerBackground: #434343;
+$mainviewBackground: #ECECEC;
+
+body{
+	background: $mainviewBackground;
+	overflow: hidden;
+}
+
+#header{
+	position: relative;
+	z-index: 20;
+	padding: 10px 0px 0px 40px;
+	width: 100%;
+	height: 100px;
+	background: $headerBackground;
+	-moz-box-shadow: 0px 0px 5px 5px #888;
+	-webkit-box-shadow: 0px 0px 5px 5px #888;
+	box-shadow: 0px 0px 5px 5px #888;
+	#toprow{
+		float: left;
+	}
+	#bottomrow{
+		clear: both;
+		float: left;
+	}
+	.arrow{
+		float: right;
+	}
+}
+
+#main_view{
+	width: 100%;
+	margin:0 auto;
+
+	#container{
+		position: absolute;
+		background: $mainviewBackground;
+		width: 100%;
+		height: 100%;
+		* {
+			height: 100%;
+		}
+	}
+}
+
+#detailviewLang, #detailviewFrame, #detailviewCMS{
+	position: absolute;
+	height: 100%;
+	width: 0%;
+	/*background: #7A7979;*/
+	background: #FFFFFF;
+	border-left: 1px solid #DDD;
+	right:0px;
+}
+
+#line, #langLine, #frameLine, #cmsLine{
+	width:1000px; 
+	height: 40%; 
+	margin: 0 auto;
+}
+
+#parallelLang, #parallelFrame, #parallelcms{
+	width:75%;
+	margin: 0 auto;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif !important;
+}
+
+
+//////////////
+// SELECTBOX
+//////////////
+#selectboxLang, #selectboxAspect{
+	z-index: 25;
+	visibility: hidden;
+	height:0px;
+	width: 228px;
+	border: 1px solid #D9D9D9;
+	background: #FFFFFF;
+	position: absolute;
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style-type:none;
+		label {
+			width: 100%;
+			margin: 0;
+			li{
+				padding: 10px;
+				border-bottom: 1px solid #D9D9D9;
+				background-color: #FFFFFF;
+			}
+			li:hover{
+				background-color: #F3F3F3;
+			}
+		}
+	}
+	.checkbox{
+		margin-right: 10px;
+		float: left;
+	}
+}
+
+////////////////
+// TOOLTIP
+////////////////
+.tooltip {
+	position: absolute;
+	top: 100px;
+	left: 100px;
+  	-moz-border-radius:5px;
+	border-radius: 5px;
+  	border: 2px solid #000;
+	/* background: #222222; */
+  	background: #fff;
+	opacity: .9;
+	/* color: #eeeeee; */
+  	color: black;
+	padding: 10px;
+	width: 300px;
+	font-size: 12px;
+	z-index: 10;
+	.title {
+		font-size: 13px;
+	}
+	.name {
+	  font-weight:bold;
+	}
+}
+
+///////////////
+// TAB PANEL
+///////////////
+#myTab{
+	background-color: #FFFFFF;
+	margin-bottom: 0;
+	.active a{
+		background-color: $mainviewBackground
+	}
+	a{
+		color: #555;
+	}	
+}
+
+.tab-content{
+	.table{
+		background-color: #FFFFFF;
+		width: 75%;
+		margin: 10px auto;
+		tbody tr:hover td, .table tbody tr:hover th{
+			background-color: #f5f5f5;
+		}
+	}
+	.tab-pane{
+
+	}
+}
+
+
+
+
+
+
+
+
 

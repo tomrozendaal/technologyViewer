@@ -1,11 +1,72 @@
 <%= render 'layouts/header' %>
 
 <div id="main_view">
-	<div id="container" class="container">
-	    <div id="main" role="main">
-	      <div id="vis"></div>
-	    </div>
+	<ul class="nav nav-tabs" id="myTab">
+		<li class="active"><a href="#overview">Overview</a></li>
+		<li><a href="#table">Table</a></li>
+		<li><a href="#detail">Detail</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div class="tab-pane active" id="overview">
+			<div id="container" class="container">
+			    <div id="main" role="main">
+			      <div id="vis"></div>
+			    </div>
+			</div>
+		</div>
+		<div class="tab-pane" id="table">
+			<table class="table table-bordered table-striped tablesorter" id="example">
+				<thead>
+				    <tr>
+						<th>Name</th>
+						<th>Adoption</th>
+						<th>Evolution</th>
+						<th>Knowledge</th>
+						<th>Newsvalue</th>
+						<th>Sentiment</th>
+						<th>Total</th>
+				    </tr>
+			  	</thead>
+			  	<tbody>
+				    <tr>
+						<td>Java</td>
+						<td>212</td>
+						<td>123</td>
+						<td>90</td>
+						<td>46</td>
+						<td>209</td>
+						<td>46</td>
+				    </tr>
+				    <tr>
+						<td>C++</td>
+						<td>199</td>
+						<td>100</td>
+						<td>210</td>
+						<td>36</td>
+						<td>187</td>
+						<td>210</td>
+				    </tr>
+				    <tr>
+						<td>PHP</td>
+						<td>156</td>
+						<td>101</td>
+						<td>156</td>
+						<td>123</td>
+						<td>154</td>
+						<td>290</td>
+				    </tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="tab-pane" id="detail">...</div>
 	</div>
+
+	<script>
+		$(function () {
+			$('#myTab a:first').tab('show');
+		})
+	</script>
 </div>
 <div id="detailviews">
 	<div id="detailviewLang">
