@@ -54,7 +54,7 @@ $(function () {
                 data: [1.9, 2.2, 5.7, 6.5, 9.9, 9.2, 11.0, 12.6, 13.2, 10.3, 6.6, 4.8]
             }]
         });
-
+        /*
         webFrameworksChart = new Highcharts.Chart({
             chart: {
                 renderTo: 'frameLine',
@@ -158,7 +158,7 @@ $(function () {
                 data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
             }]
         });
-
+        */
     
 
     });

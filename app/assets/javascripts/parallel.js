@@ -7,11 +7,11 @@ $(document).ready(function () {
 function ParallelGraph(element, options){
   var element = element
   var parent_width = $(window).width() * 0.75
-  var parent_height = $('#detailviewLang').height()
+  var height = 350
 
   var margin = {top: 30, right: 10, bottom: 30, left: 10},
       width = parent_width * 0.75 - margin.right - margin.left,
-      height = parent_height * 0.40 - margin.top - margin.bottom;
+      height = height - margin.top - margin.bottom;
 
   var x = d3.scale.ordinal()
       .rangePoints([0, width], 1);

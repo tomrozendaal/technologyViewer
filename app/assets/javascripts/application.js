@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require js-routes
 $(function () {
 	$('#myTab a').click(function (e) {
 	  e.preventDefault();
@@ -20,6 +21,6 @@ $(function () {
 	})
 
 	$(function() {
-		$("table#example").tablesorter({ sortList: [[1,0]] });
+		$("table#example").tablesorter({ sortList: [[0,1]] });
 	});
 });

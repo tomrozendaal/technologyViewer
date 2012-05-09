@@ -189,40 +189,11 @@ class BubbleChart
 
 
 
-class Detailview
-  constructor: (element) ->
-    @element = element
-    @selected = false
-
-  show: () => 
-    @selected = true
-    @element.css 'zIndex', 5
-    @element.addClass "selected"
-    @element.animate {width: '75%',500 } 
-
-  hide: () =>
-    @selected = false
-    @element.css 'zIndex', 0
-    @element.removeClass "selected"
-    @element.animate 
-      width: '0%'
-      500
-
-
+###
 root = exports ? this
 
 $ ->
   chart = null
-  technologyOverview = $('#technologyOverview')
-  programmingLanguages = $('#programmingLanguages')
-  webFrameworks = $('#webFrameworks')
-  contentManagementSystems = $('#contentManagementSystems')
-
-  programmingLanguagesView = new Detailview $('#detailviewLang')
-  webFrameworksView = new Detailview $('#detailviewFrame')
-  contentManagementSystemsView = new Detailview $('#detailviewCMS')
-
-  detailviews = [programmingLanguagesView, webFrameworksView, contentManagementSystemsView]
 
   render_vis = (csv) ->
     chart = new BubbleChart csv
@@ -238,25 +209,8 @@ $ ->
     else
       root.display_all()
 
-  technologyOverview.click ->
-    chart.display_group_all()
-    view.hide() for view in detailviews when view.selected is true
-  programmingLanguages.click ->
-    chart.display_category("2008")
-    view.hide() for view in detailviews when view.selected is true and view isnt programmingLanguagesView
-    programmingLanguagesView.show()
-  webFrameworks.click ->
-    chart.display_category("2009")
-    view.hide() for view in detailviews when view.selected is true and view isnt webFrameworksView
-    webFrameworksView.show()
-  contentManagementSystems.click ->
-    chart.display_category("2010")
-    view.hide() for view in detailviews when view.selected is true and view isnt contentManagementSystemsView
-    contentManagementSystemsView.show()
-
   d3.csv "data/gates_money.csv", render_vis
-
-
+###
 
 
 
