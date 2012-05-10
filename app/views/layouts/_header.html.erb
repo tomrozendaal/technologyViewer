@@ -1,14 +1,19 @@
 <div id="header">
+	<%= link_to "Logo hier zo", root_path, :id => "logo" %>
 	<div class="buttons">
 		<div id="toprow">
 			<a href="<%= overview_path %>"><button class="action" id="technologyOverview"><span class="label">Technology Overview</span></button></a>
 			<a href="<%= programmingLanguages_path %>"><button class="action blue" id="programmingLanguages"><span class="label">Programming Languages</span></button></a>
 			<button class="action" id="selectLang"><span class="label">Select languages</span><span class="arrow">&#9660;</span></button>
-		</div>
+		</div> 
 		<div id="bottomrow">
 			<a href="<%= webFrameworks_path %>"><button class="action red" id="webFrameworks"><span class="label">Web Frameworks</span></button></a>
 			<a href="<%= contentManagementSystems_path %>"><button class="action green" id="contentManagementSystems"><span class="label">Content Management Systems</span></button></a>
 			<button class="action" id="selectAspect"><span class="label">Select aspects</span><span class="arrow">&#9660;</span></button>
 		</div>	
 	</div>
+	<form class="well form-search">
+		<input type="text" class="input-medium search-query" placeholder="Ex: Ruby on Rails">
+		<button type="submit" class="btn">Search</button>
+	</form>
 </div>

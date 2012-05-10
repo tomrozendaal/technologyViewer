@@ -40,7 +40,7 @@ $ ->
 		chart.display_group_all()
 	d3.csv "data/total_data.csv", render_overview
 
-	###
+	
 	# Programming languages
 	render_proglang = (csv) ->
 		width = $(window).width() / 100 * $('.span3').width()
@@ -51,7 +51,7 @@ $ ->
 
 	#alert d3.csv "data/gates_money.csv"
 	d3.csv "data/webframeworks_data.csv", render_proglang
-	###
+	
 
 class BubbleChart
 	constructor: (data, width, height, element) ->
@@ -214,7 +214,7 @@ class Selectbox
 		@element.addClass "selected"
 		@element.css 'visibility', 'visible'
 		@element.css 'top', @top + 'px'
-		@element.css 'left', '525px'
+		@element.css 'left', '585px'
 
 
 		options = 

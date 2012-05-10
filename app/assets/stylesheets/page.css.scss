@@ -22,16 +22,47 @@ body{
 	-webkit-box-shadow: 0px 0px 5px 5px #888;
 	box-shadow: 0px 0px 5px 5px #888;
 	.buttons{
-		padding: 10px 0px 0px 40px;
+		padding: 10px 0px 0px 100px;
 		#toprow{
-		float: left;
+			float: left;
+			height: auto;
 		}
 		#bottomrow{
-			clear: both;
+			clear:left;
 			float: left;
+			height: auto;
 		}
 		.arrow{
 			float: right;
+		}
+	}
+	#logo {
+		position:absolute;
+		float: left;
+		height: 100%;
+		width: 50px;
+		margin-top: 5px;
+		padding: 10px 0px 0px 10px;
+		font-size: 1.7em;
+		color: white;
+		text-transform: uppercase;
+		letter-spacing: -1px;
+		padding-top: 9px;
+		font-weight: bold;
+		line-height: 1;
+		&:hover {
+			color: white;
+			text-decoration: none;
+		}
+	}
+	.form-search{
+		position: absolute;
+		right: 0;
+		border: none;
+		background:none;
+		button{
+			width: auto !important;
+			float:none;
 		}
 	}
 	
@@ -135,6 +166,7 @@ body{
 #myTab{
 	background-color: #FFFFFF;
 	margin-bottom: 0;
+	padding-left: 105px;
 	.active a{
 		background-color: $mainviewBackground
 	}
