@@ -10,6 +10,14 @@ $mainviewBackground: #ECECEC;
 body{
 	background: $mainviewBackground;
 }
+svg{
+	z-index: 30;
+	circle{
+		z-index:35;
+		cursor:pointer;
+	}
+}
+
 
 #header{
 	display:block;
@@ -151,12 +159,13 @@ body{
 	padding: 10px;
 	width: 300px;
 	font-size: 12px;
+	text-transform:capitalize;
 	z-index: 10;
 	.title {
 		font-size: 13px;
 	}
 	.name {
-	  font-weight:bold;
+	  	font-weight:bold;
 	}
 }
 

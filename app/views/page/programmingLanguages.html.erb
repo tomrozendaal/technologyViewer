@@ -85,7 +85,7 @@
 	<script>
 		$(function () {
 			$('#myTab a:first').tab('show');
-			/*
+			
 			var chart;
 			var chart2;
 		
@@ -94,17 +94,17 @@
 				chart.start();
 				chart.display_group_all();
 			};
-			d3.csv("data/total_data.csv", render_overview);
+			d3.csv("data/latest_aspect_data.csv", render_overview);
 
 			render_proglang = function(csv) {
 				var width;
 				width = $(window).width() / 100 * $('.span3').width();
-				//chart2 = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
+				chart2 = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
 				chart2.start();
 				chart2.display_group_all();
 			};
-			d3.csv("data/webframeworks_data.csv", render_proglang);
-			*/
+			d3.csv("data/latest_aspect_data.csv", render_proglang);
+			
 		})
 	</script>
 </div>

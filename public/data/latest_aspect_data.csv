@@ -1,0 +1,16 @@
+date,technology,category,parent,adoption,knowledge,sentiment,total
+5/2012,php,pl,php,156,310,10,476
+5/2012,java,pl,java,537,539,20,1096
+5/2012,ruby,pl,ruby,85,49,20,154
+5/2012,objective-c,pl,objective-c,45,33,10,88
+5/2012,c++,pl,c++,512,58,-60,510
+5/2012,ruby-on-rails,wf,ruby,34,32,30,96
+5/2012,codeigniter,wf,php,2,22,60,85
+5/2012,zend-framework,wf,php,6,26,-90,-57
+5/2012,cakephp,wf,php,2,22,30,54
+5/2012,spring,wf,java,79,83,0,163
+5/2012,wordpress,cms,php,13,200,50,264
+5/2012,drupal,cms,php,13,40,60,113
+5/2012,joomla,cms,php,8,45,70,124
+5/2012,yii,cms,php,0,20,10,31
+5/2012,concrete5,cms,php,0,18,30,48

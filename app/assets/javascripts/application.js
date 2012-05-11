@@ -18,9 +18,10 @@ $(function () {
 	$('#myTab a').click(function (e) {
 	  e.preventDefault();
 	  $(this).tab('show');
-	})
+	});
 
 	$(function() {
 		$("table#example").tablesorter({ sortList: [[0,1]] });
 	});
+
 });

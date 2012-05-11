@@ -61,6 +61,16 @@
 	<script>
 		$(function () {
 			$('#myTab a:first').tab('show');
+
+			var chart;
+			var chart2;
+		
+			render_overview = function(csv) {
+				chart = new BubbleChart(csv, $(window).width(), $('#container').height(), "#vis");
+				chart.start();
+				chart.display_group_all();
+			};
+			d3.csv("data/latest_aspect_data.csv", render_overview);
 		})
 	</script>
 </div>
