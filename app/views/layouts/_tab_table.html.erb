@@ -1,0 +1,24 @@
+<div class="tab-pane" id="table">
+	<table class="table table-bordered table-striped tablesorter" id="example">
+		<thead>
+		    <tr>
+				<th>Name</th>
+				<th>Adoption</th>
+				<th>Knowledge</th>
+				<th>Sentiment</th>
+				<th>Total</th>
+		    </tr>
+	  	</thead>
+	  	<tbody>
+		    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
+		    	<tr>
+					<td><%= csv_obj['technology'].capitalize %></td>
+					<td><%= csv_obj['adoption'] %></td>
+					<td><%= csv_obj['knowledge'] %></td>
+					<td><%= csv_obj['sentiment'] %></td>
+					<td><%= csv_obj['total'] %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

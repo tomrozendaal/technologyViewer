@@ -5,7 +5,7 @@ $(function () {
     $(document).ready(function() {
         programmingLanguagesChart = new Highcharts.Chart({
             chart: {
-                renderTo: 'langLine',
+                renderTo: 'line',
                 type: 'line'
             },
             title: {

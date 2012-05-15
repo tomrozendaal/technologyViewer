@@ -16,12 +16,13 @@
 //= require js-routes
 $(function () {
 	$('#myTab a').click(function (e) {
-	  e.preventDefault();
-	  $(this).tab('show');
+		e.preventDefault();
+		$(this).tab('show');
 	});
+	//$('#myTab a:last').tab('show');
+	
+	$("table#example").tablesorter({ sortList: [[4,1]] });
 
-	$(function() {
-		$("table#example").tablesorter({ sortList: [[0,1]] });
-	});
+	alert(Routes.programmingLanguages_path());
 
 });

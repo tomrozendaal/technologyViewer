@@ -151,15 +151,28 @@ class @BubbleChart
 			return value
 
 	show_detail_tech: (data,i,element) =>
+		fullcategory
+		switch data.category
+			when "cms" then fullcategory = "contentManagementSystems"
+			when "pl" then fullcategory = "programmingLanguages"
+			when "wf" then fullcategory = "webFrameworks"
+
+		technology = data.name
+		window.location.replace("/#{fullcategory}/#{technology}");
+
+
+		###
 		if data.selected == true
 			data.selected = false
 			d3.select(element).attr("fill", @colors[data.category])
 		else
+			
+
 			@circles.each(this.reset_selected())
 			data.selected = true
 			@circles.attr("fill", (d) => @colors[d.category])
 			d3.select(element).attr("fill", => d3.rgb(@colors[data.category]).darker())
-			
+		###
 
 	show_details: (data, i, element) =>
 		d3.select(element).attr("stroke", "black")

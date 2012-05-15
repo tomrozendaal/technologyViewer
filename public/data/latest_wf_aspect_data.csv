@@ -1,0 +1,10 @@
+date,technology,category,parent,adoption,knowledge,sentiment,total
+5/2012,ruby-on-rails,wf,ruby,220,100,20,341
+5/2012,codeigniter,wf,php,15,36,20,72
+5/2012,zend-framework,wf,php,40,62,-40,63
+5/2012,cakephp,wf,php,15,36,20,72
+5/2012,spring,wf,java,506,486,10,1002
+5/2012,yii,wf,php,4,25,10,40
+5/2012,django,wf,python,80,59,-10,129
+5/2012,pear,wf,php,3,56,0,59
+5/2012,symfony,wf,php,15,43,30,89

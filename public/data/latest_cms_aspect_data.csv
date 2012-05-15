@@ -1,0 +1,6 @@
+date,technology,category,parent,adoption,knowledge,sentiment,total
+5/2012,wordpress,cms,php,184,263,25,472
+5/2012,drupal,cms,php,209,87,45,342
+5/2012,joomla,cms,php,104,99,15,218
+5/2012,concrete5,cms,php,2,20,-10,13
+5/2012,typo3,cms,php,5,32,-5,32

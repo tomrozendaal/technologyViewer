@@ -1,8 +1,14 @@
 TechnologyViewer::Application.routes.draw do
   match 'overview' => 'page#overview'
+
   match 'programmingLanguages' => 'page#programmingLanguages'
+  match 'programmingLanguages/:tech' => 'page#programmingLanguages'
+
   match 'webFrameworks' => 'page#webFrameworks'
+  match 'webFrameworks/:tech' => 'page#webFrameworks'
+
   match 'contentManagementSystems' => 'page#contentManagementSystems'
+  match 'contentManagementSystems/:tech' => 'page#contentManagementSystems'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

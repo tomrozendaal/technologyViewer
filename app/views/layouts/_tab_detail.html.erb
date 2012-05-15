@@ -1,0 +1,44 @@
+<div class="tab-pane" id="detail">
+	<div class="row-fluid">
+		<div class="span3">
+			<div class= "well sidebar-nav">
+			</div>
+		</div>
+		<div class="span9">
+			<div class="hero-unit">
+				<div id="detailviews">
+					<div id="line"></div>
+					<div id="parallel"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+    var parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
+
+    console.log($('#parallelline'));
+
+    $("#parallelsvg").svg({
+    	onLoad: loadDone
+    });
+	var svg = $("#parallelsvg").svg('get');
+	$("#parallelsvg").svg() 
+
+	console.log(svg._svg.firstChild.childNodes.item(1));
+	//svg._svg.firstChild.childNodes.attr("stroke", "red")
+
+	//$('g', svg.root()).attr('stroke', 'red');
+	//setTimeout(function() {test();},1000);
+});
+function test(){
+	$('#foreground path').css('stroke', 'red');
+}
+function loadDone(svg, error) {
+	//alert("blah");
+	console.log(svg, error);
+	test();
+}
+</script>

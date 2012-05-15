@@ -5,72 +5,8 @@
 	</ul>
 
 	<div class="tab-content">
-		<div class="tab-pane active" id="overview">
-			<div id="container" class="container">
-			    <div id="main" role="main">
-			      <div id="vis"></div>
-			    </div>
-			</div>
-		</div>
-		<div class="tab-pane" id="table">
-			<table class="table table-bordered table-striped tablesorter" id="example">
-				<thead>
-				    <tr>
-						<th>Name</th>
-						<th>Adoption</th>
-						<th>Evolution</th>
-						<th>Knowledge</th>
-						<th>Newsvalue</th>
-						<th>Sentiment</th>
-						<th>Total</th>
-				    </tr>
-			  	</thead>
-			  	<tbody>
-				    <tr>
-						<td>Java</td>
-						<td>212</td>
-						<td>123</td>
-						<td>90</td>
-						<td>46</td>
-						<td>209</td>
-						<td>46</td>
-				    </tr>
-				    <tr>
-						<td>C++</td>
-						<td>199</td>
-						<td>100</td>
-						<td>210</td>
-						<td>36</td>
-						<td>187</td>
-						<td>210</td>
-				    </tr>
-				    <tr>
-						<td>PHP</td>
-						<td>156</td>
-						<td>101</td>
-						<td>156</td>
-						<td>123</td>
-						<td>154</td>
-						<td>290</td>
-				    </tr>
-				</tbody>
-			</table>
-		</div>
+		<%= render 'layouts/tab_overview' %>
+		<%= render 'layouts/tab_table' %>
 	</div>
-
-	<script>
-		$(function () {
-			$('#myTab a:first').tab('show');
-
-			var chart;
-			var chart2;
-		
-			render_overview = function(csv) {
-				chart = new BubbleChart(csv, $(window).width(), $('#container').height(), "#vis");
-				chart.start();
-				chart.display_group_all();
-			};
-			d3.csv("data/latest_aspect_data.csv", render_overview);
-		})
-	</script>
 </div>
+<%= render 'layouts/tab_bubble' %>

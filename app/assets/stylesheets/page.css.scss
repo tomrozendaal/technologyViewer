@@ -86,20 +86,16 @@ svg{
 	}
 }
 
-#detailviewLang, #detailviewFrame, #detailviewCMS{
-	height: 100%;
-	/*background: #7A7979;*/
-	background: #FFFFFF;
-	border-left: 1px solid #DDD;
+#parallelline{
+	stroke:orange;
 }
-
-#line, #langLine, #frameLine, #cmsLine{
+#line{
 	width:1000px; 
 	height: 30%; 
 	margin: 0 auto;
 }
 
-#parallelLang, #parallelFrame, #parallelcms{
+#parallel{
 	width:75%;
 	height: 40%;
 	margin: 0 auto;

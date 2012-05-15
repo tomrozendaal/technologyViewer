@@ -1,11 +1,6 @@
-$(document).ready(function () {
-    var programmingLanguagesChart = new ParallelGraph($('#parallelLang'));
-    var webFrameworksChart = new ParallelGraph($('#parallelFrame'));
-    var cmsChart = new ParallelGraph($('#parallelcms'));
-});
-
-function ParallelGraph(element, options){
+function ParallelGraph(element, csv){
   var element = element
+  var csv = csv
   var parent_width = $(window).width() * 0.75
   var height = 350
 
@@ -26,34 +21,39 @@ function ParallelGraph(element, options){
   var svg = d3.select('#' + element.attr('id')).append("svg")
       .attr("width", width + margin.right + margin.left)
       .attr("height", height + margin.top + margin.bottom)
+      .attr("id", 'parallelsvg')
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.csv("data/cars.csv", function(cars) {
+  var i = 0;
+  d3.csv(csv, function(technologies) {
 
     // Extract the list of dimensions and create a scale for each.
-    x.domain(dimensions = d3.keys(cars[0]).filter(function(d) {
-      return d != "name" && (y[d] = d3.scale.linear()
-          .domain(d3.extent(cars, function(p) { return +p[d]; }))
+    x.domain(dimensions = d3.keys(technologies[0]).filter(function(d) {
+      return d != "date" && d != "technology" && d != "category" && d != "parent" && (y[d] = d3.scale.linear()
+          .domain(d3.extent(technologies, function(p) { return +p[d]; }))
           .range([height, 0]));
     }));
+
 
     // Add grey background lines for context.
     background = svg.append("g")
         .attr("class", "background")
       .selectAll("path")
-        .data(cars)
+        .data(technologies)
       .enter().append("path")
         .attr("d", path);
 
     // Add blue foreground lines for focus.
     foreground = svg.append("g")
         .attr("class", "foreground")
+        .attr("id", "foreground")
       .selectAll("path")
-        .data(cars)
+        .data(technologies)
       .enter().append("path")
         .attr("d", path)
-        .attr("style", "stroke:steelblue;");
+        .attr('id', 'parallelline')
+        //.attr("style", "stroke:steelblue;");
 
     // Add a group element for each dimension.
     var g = svg.selectAll(".dimension")
@@ -96,11 +96,6 @@ function ParallelGraph(element, options){
     });
   }
 }
-
-
-
-
-
 
 
 
