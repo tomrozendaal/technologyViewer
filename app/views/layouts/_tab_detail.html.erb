@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
 $(document).ready(function () {
-    var parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
+    window.parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
 
     $("#parallelsvg").svg({
     	onLoad: loadDone

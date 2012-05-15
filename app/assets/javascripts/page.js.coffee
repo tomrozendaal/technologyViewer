@@ -33,10 +33,12 @@ $ ->
 				unselectedAspects.splice(jQuery.inArray(checkbox.id, unselectedAspects),1);
 				window.chart.update(unselectedAspects)
 				window.chart2.update(unselectedAspects)
+				window.parallelgraph.update(unselectedAspects)
 			if checkbox.checked == false
 				unselectedAspects.push(checkbox.id)
 				window.chart.update(unselectedAspects)
 				window.chart2.update(unselectedAspects)
+				window.parallelgraph.update(unselectedAspects)
 				
 	getCheckbox checkbox for checkbox in aspectbox.getCheckboxes()
 
