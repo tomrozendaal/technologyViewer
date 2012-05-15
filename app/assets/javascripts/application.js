@@ -19,10 +19,13 @@ $(function () {
 		e.preventDefault();
 		$(this).tab('show');
 	});
-	//$('#myTab a:last').tab('show');
 	
 	$("table#example").tablesorter({ sortList: [[4,1]] });
 
-	alert(Routes.programmingLanguages_path());
+
+	var urlpath = window.location.pathname.split('/');
+	if(urlpath[2]){
+		$('#myTab a:last').tab('show');
+	}
 
 });

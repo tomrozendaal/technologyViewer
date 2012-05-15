@@ -4,6 +4,9 @@ class @Selectbox
 		@button = button
 		@selected = false
 		@top = @button.offset().top + 31
+		@unselected = []
+
+		@check checkbox for checkbox in @getCheckboxes()
 
 	show: () => 
 		@selected = true
@@ -32,3 +35,16 @@ class @Selectbox
 		@element.animate 
 			height: '0px'
 			options
+
+	getCheckboxes: () =>
+    	id = @element.attr('id')
+    	return $('#' + id + ' input')
+
+    check: (checkbox) =>
+    	checkbox.checked = true
+
+
+
+
+
+

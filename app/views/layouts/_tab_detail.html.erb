@@ -19,15 +19,13 @@
 $(document).ready(function () {
     var parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
 
-    console.log($('#parallelline'));
-
     $("#parallelsvg").svg({
     	onLoad: loadDone
     });
 	var svg = $("#parallelsvg").svg('get');
 	$("#parallelsvg").svg() 
 
-	console.log(svg._svg.firstChild.childNodes.item(1));
+	//console.log(svg._svg.firstChild.childNodes.item(1));
 	//svg._svg.firstChild.childNodes.attr("stroke", "red")
 
 	//$('g', svg.root()).attr('stroke', 'red');
@@ -38,7 +36,7 @@ function test(){
 }
 function loadDone(svg, error) {
 	//alert("blah");
-	console.log(svg, error);
+	//console.log(svg, error);
 	test();
 }
 </script>

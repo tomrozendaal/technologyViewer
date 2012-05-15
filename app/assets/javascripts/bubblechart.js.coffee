@@ -35,16 +35,30 @@ class @BubbleChart
 		max_amount = d3.max(@data, (d) -> parseInt(d.total))
 		@radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, @width / 18])
 
-		this.create_nodes()
+		this.create_nodes([])
 		this.create_vis()
 
 	# create node objects from original data
 	# that will serve as the data behind each
 	# bubble in the vis, then add each node
 	# to @nodes to be used later
-	create_nodes: () =>
+	create_nodes: (unselectedAspects) =>
 		@data.forEach (d) =>
-			total_radius = @return_value(d.total)
+			radius = d.total
+			total_rating = d.total
+			unselectedAspects.forEach (aspect) =>
+				if aspect == 'adoption'
+					radius = radius - d.adoption
+					total_rating = total_rating - d.adoption
+				if aspect == 'knowledge'
+					radius = radius - d.knowledge
+					total_rating = total_rating - d.knowledge
+				if aspect == 'sentiment'
+					radius = radius - d.sentiment
+					total_rating = total_rating - d.sentiment
+
+			total_radius = @return_value(radius)
+						
 			if d.category == "wf"
 				category = "Web Framework"
 			else if d.category == "cms"
@@ -55,7 +69,7 @@ class @BubbleChart
 			node = {
 				id: d.id
 				radius: @radius_scale(parseInt(total_radius))
-				rating: d.total
+				rating: total_rating
 				name: d.technology
 				category: d.category
 				category_long: category
@@ -63,8 +77,8 @@ class @BubbleChart
 				y: Math.random() * 800
 				selected: false
 			}
-			@nodes.push node
 
+			@nodes.push node
 		@nodes.sort (a,b) -> b.rating - a.rating
 
 
@@ -143,6 +157,19 @@ class @BubbleChart
 	reset_selected: () =>
 		(d) =>
 			d.selected = false
+
+	update: (unselectedAspects) =>
+		@vis = null
+		@nodes = []
+		@force = null
+		@circles = null
+
+		this.create_nodes(unselectedAspects)
+		$(@element).empty()
+		this.create_vis()
+		this.start()
+		this.display_group_all()
+
 
 	return_value: (value) =>
 		if value < 0

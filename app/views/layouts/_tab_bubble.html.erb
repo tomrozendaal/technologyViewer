@@ -1,21 +1,26 @@
 <script>
 	$(function () {
-		var chart;
-		var chart2;
-	
+		window.chart;
+		window.chart2;
+
 		render_overview = function(csv) {
-			chart = new BubbleChart(csv, $(window).width(), $('#container').height(), "#vis");
-			chart.start();
-			chart.display_group_all();
+			var height;
+			if($('.tab-content').height()){
+				height = $('.tab-content').height();
+			} else if($('#container').height()){
+				height = $('#container').height();
+			}
+			window.chart = new BubbleChart(csv, $(window).width(), height, "#vis");
+			window.chart.start();
+			window.chart.display_group_all();
 		};
 		d3.csv("/<%= @csv_file %>", render_overview);
 
 		render_detail = function(csv) {
-			var width;
-			width = $(window).width() / 100 * $('.span3').width();
-			chart2 = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
-			chart2.start();
-			chart2.display_group_all();
+			var width = $(window).width() * 0.224;
+			window.chart2 = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
+			window.chart2.start();
+			window.chart2.display_group_all();
 		};
 		d3.csv("/<%= @csv_file %>", render_detail);
 	})
