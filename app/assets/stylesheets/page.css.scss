@@ -86,9 +86,7 @@ svg{
 	}
 }
 
-#parallelline{
-	stroke:orange;
-}
+
 #line{
 	width:1000px; 
 	height: 30%; 
@@ -97,9 +95,39 @@ svg{
 
 #parallel{
 	width:75%;
-	height: 40%;
-	margin: 0 auto;
+	min-height: 400px;
+	background: #FFFFFF;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 20px auto;
 	font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif !important;
+	#parallelsvg{
+		float:left;
+	}
+	#legenda{
+		text-transform:capitalize;
+		float:left;
+		padding-top: 25px;
+		ul{
+			padding:0;
+			margin:0;
+			li{
+				list-style-type:none;
+			}
+		}
+		.box{
+			width: 20px;
+			height: 10px;
+			margin-top: 5px;
+			float: left;
+		}
+		.box_text{
+			height:10px;
+			margin: 0 0 0 5px;
+			//float:left;
+		}
+	}
+	
 }
 
 

@@ -12,7 +12,7 @@
 	  	<tbody>
 		    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
 		    	<tr>
-					<td><%= csv_obj['technology'].capitalize %></td>
+					<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/#{csv_obj['technology']}" %></td>
 					<td><%= csv_obj['adoption'] %></td>
 					<td><%= csv_obj['knowledge'] %></td>
 					<td><%= csv_obj['sentiment'] %></td>

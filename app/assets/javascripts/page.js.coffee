@@ -25,19 +25,27 @@ $ ->
 		else
 			langbox.show()
 
+	$('#main_view').click ->
+		if langbox.selected
+			langbox.hide()
+		if aspectbox.selected
+			aspectbox.hide()	
+
+
+	#console.log($('#line').height())
 	unselectedAspects = []
 
 	getCheckbox = (checkbox) ->
 		$(checkbox).change ->
 			if checkbox.checked == true
 				unselectedAspects.splice(jQuery.inArray(checkbox.id, unselectedAspects),1);
-				window.chart.update(unselectedAspects)
-				window.chart2.update(unselectedAspects)
+				window.bubbleOverview.update(unselectedAspects)
+				window.bubbleDetail.update(unselectedAspects)
 				window.parallelgraph.update(unselectedAspects)
 			if checkbox.checked == false
 				unselectedAspects.push(checkbox.id)
-				window.chart.update(unselectedAspects)
-				window.chart2.update(unselectedAspects)
+				window.bubbleOverview.update(unselectedAspects)
+				window.bubbleDetail.update(unselectedAspects)
 				window.parallelgraph.update(unselectedAspects)
 				
 	getCheckbox checkbox for checkbox in aspectbox.getCheckboxes()

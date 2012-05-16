@@ -9,9 +9,9 @@
 		@width = @parent_width * 0.75 - @margin.right - @margin.left
 		@height = @height - @margin.top - @margin.bottom
 
+		
 		@x = d3.scale.ordinal()
 		 	.rangePoints([0, @width], 1)
-
 		@y = {}
 
 		@line = d3.svg.line()
@@ -26,31 +26,26 @@
 		.append("g")
 		  	.attr("transform", "translate(" + @margin.left + "," + @margin.top + ")")
 
-		console.log(@svg)
-		@draw()
-
+		#@draw()
 
 
 	draw: () =>
 		d3.csv(@csv, (technologies) ->
-			# Extract the list of dimensions and create a scale for each.
-			console.log(technologies[0])
-			
-			@x.domain(dimensions = d3.keys(technologies[0]).filter((d) ->				
+			# Extract the list of dimensions and create a scale for each.			
+			@x.domain(dimensions = d3.keys(technologies[0]).filter((d) ->
 				if d != "date" && d != "technology" && d != "category" && d != "parent"
 					@y[d] = d3.scale.linear()
 						.domain(d3.extent(technologies, (p) -> return +p[d]))
 						.range([@height, 0])
 			))
-
+			console.log(@svg)
 			# Add grey background lines for context.
-			console.log()
 			background = @svg.append("g")
-				.attr("class", "background")
+					.attr("class", "background")
 				.selectAll("path")
-				.data(technologies)
+					.data(technologies)
 				.enter().append("path")
-				.attr("d", path)
+					.attr("d", path)
 
 			# Add blue foreground lines for focus.
 			foreground = svg.append("g")

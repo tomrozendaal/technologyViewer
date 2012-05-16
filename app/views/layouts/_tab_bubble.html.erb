@@ -1,7 +1,7 @@
 <script>
 	$(function () {
-		window.chart;
-		window.chart2;
+		window.bubbleOverview;
+		window.bubbleDetail;
 
 		render_overview = function(csv) {
 			var height;
@@ -10,17 +10,17 @@
 			} else if($('#container').height()){
 				height = $('#container').height();
 			}
-			window.chart = new BubbleChart(csv, $(window).width(), height, "#vis");
-			window.chart.start();
-			window.chart.display_group_all();
+			window.bubbleOverview = new BubbleChart(csv, $(window).width(), height, "#vis");
+			window.bubbleOverview.start();
+			window.bubbleOverview.display_group_all();
 		};
 		d3.csv("/<%= @csv_file %>", render_overview);
 
 		render_detail = function(csv) {
 			var width = $(window).width() * 0.224;
-			window.chart2 = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
-			window.chart2.start();
-			window.chart2.display_group_all();
+			window.bubbleDetail = new BubbleChart(csv, width, width / 2, ".sidebar-nav");
+			window.bubbleDetail.start();
+			window.bubbleDetail.display_group_all();
 		};
 		d3.csv("/<%= @csv_file %>", render_detail);
 	})

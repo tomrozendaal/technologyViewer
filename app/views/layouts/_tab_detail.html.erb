@@ -8,7 +8,9 @@
 			<div class="hero-unit">
 				<div id="detailviews">
 					<div id="line"></div>
-					<div id="parallel"></div>
+					<div id="parallel">
+						<div id="parallelsvg"></div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -19,24 +21,6 @@
 $(document).ready(function () {
     window.parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
 
-    $("#parallelsvg").svg({
-    	onLoad: loadDone
-    });
-	var svg = $("#parallelsvg").svg('get');
-	$("#parallelsvg").svg() 
 
-	//console.log(svg._svg.firstChild.childNodes.item(1));
-	//svg._svg.firstChild.childNodes.attr("stroke", "red")
-
-	//$('g', svg.root()).attr('stroke', 'red');
-	//setTimeout(function() {test();},1000);
 });
-function test(){
-	$('#foreground path').css('stroke', 'red');
-}
-function loadDone(svg, error) {
-	//alert("blah");
-	//console.log(svg, error);
-	test();
-}
 </script>
