@@ -37,6 +37,7 @@ class @BubbleChart
 
 		this.create_nodes([])
 		this.create_vis()
+		this.highlight_bubble()
 
 	# create node objects from original data
 	# that will serve as the data behind each
@@ -104,7 +105,7 @@ class @BubbleChart
 			.attr("fill", (d) => @colors[d.category])
 			.attr("stroke-width", 2)
 			.attr("stroke", (d) => d3.rgb(@colors[d.category]).darker())
-			.attr("id", (d) -> "bubble_#{d.id}")
+			.attr("id", (d) -> "bubble_#{d.name}")
 			.on("mouseover", (d,i) -> that.show_details(d,i,this))
 			.on("mouseout", (d,i) -> that.hide_details(d,i,this))
 			.on("click", (d,i) -> that.show_detail_tech(d,i,this))
@@ -169,6 +170,7 @@ class @BubbleChart
 		this.create_vis()
 		this.start()
 		this.display_group_all()
+		this.highlight_bubble()
 
 
 	return_value: (value) =>
@@ -187,19 +189,18 @@ class @BubbleChart
 		technology = data.name
 		window.location.replace("/#{fullcategory}/#{technology}");
 
+	highlight_bubble: () =>
+		urlpath = window.location.pathname.split('/');
+		@circles.each((d) ->			
+			if d.name == urlpath[2]
+				@colors = []
+				@colors["wf"] = "#B0281A"
+				@colors["pl"] = "#2F5BB7"
+				@colors["cms"] = "#2D6200"
+				console.log(@colors)
+				d3.select(this).attr("fill", => d3.rgb(@colors[d.category]).darker())
+		)
 
-		###
-		if data.selected == true
-			data.selected = false
-			d3.select(element).attr("fill", @colors[data.category])
-		else
-			
-
-			@circles.each(this.reset_selected())
-			data.selected = true
-			@circles.attr("fill", (d) => @colors[d.category])
-			d3.select(element).attr("fill", => d3.rgb(@colors[data.category]).darker())
-		###
 
 	show_details: (data, i, element) =>
 		d3.select(element).attr("stroke", "black")

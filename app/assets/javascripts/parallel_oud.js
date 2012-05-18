@@ -70,12 +70,21 @@ function ParallelGraph(element, csv){
       });
 
       $('#legenda ul li').each(function(){
-        $(this).hover(function(){
-          highlight(this);
-          console.log(this);
-        })
-        
+        $(this).hover(
+          function(){
+            highlight(this);
+            console.log(this);
+          }
+        )        
       });
+      $('#legenda').hover(
+        function(){
+        },
+        function(){
+          highlight();
+          brush();
+        }
+      );
 
       // Add a group element for each dimension.
       var g = svg.selectAll(".dimension")
@@ -112,14 +121,20 @@ function ParallelGraph(element, csv){
   this.draw([]);
 
   function highlight(li){
-    foreground.style("display", function(d) {
-      if(d.technology == $(li).attr('tech')){
-        return
-      }else{
-        return "none";
-      }
-      console.log(d.technology)
-    });
+    if(li){
+      foreground.style("display", function(d) {
+        if(d.technology == $(li).attr('tech')){
+          return
+        }else{
+          return "none";
+        }
+        console.log(d.technology)
+      });
+    }else{
+      foreground.style("display", function(d) {
+        return "block"
+      });
+    }
   }
 
   // Returns the path for a given data point.
@@ -132,9 +147,28 @@ function ParallelGraph(element, csv){
     var actives = dimensions.filter(function(p) { return !y[p].brush.empty(); }),
     extents = actives.map(function(p) { return y[p].brush.extent(); });
     foreground.style("display", function(d) {
-      return actives.every(function(p, i) {
-        return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-      }) ? null : "none";
+      if(actives.every(function(p, i){return extents[i][0] <= d[p] && d[p] <= extents[i][1];})){
+        $('#legenda ul li').each(function(){
+          if(d.technology == $(this).attr('tech')){
+            $(this).css({ opacity: 1.0 });
+          }
+        });
+        return null;
+      }else{
+        $('#legenda ul li').each(function(){
+          if(d.technology == $(this).attr('tech')){
+            $(this).css({ opacity: 0.2 });
+          }
+        });
+        return 'none';
+      }
     });
   }
 }
+
+
+
+
+
+
+
