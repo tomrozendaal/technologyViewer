@@ -1,4 +1,4 @@
-class BubbleChart
+###class BubbleChart
   constructor: (data) ->
     @data = data
     @width = $(window).width()
@@ -189,6 +189,7 @@ class BubbleChart
 
 
 
+###
 ###
 root = exports ? this
 

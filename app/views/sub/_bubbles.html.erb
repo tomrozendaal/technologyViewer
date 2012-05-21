@@ -1,10 +1,14 @@
+<div id="container" class="container">
+    <div id="main" role="main">
+    	<div id="vis"></div>
+    </div>
+</div>
 <script type="text/javascript">
 	$(function () {
 		window.bubbleOverview;
 
 		render_overview = function(csv) {
-			var height = 500;
-			window.bubbleOverview = new BubbleChart(csv, $(window).width(), height, "#vis");
+			window.bubbleOverview = new BubbleChart(csv, $("#vis").width(), $("#vis").width() * 0.66, "#vis");
 			window.bubbleOverview.start();
 			window.bubbleOverview.display_group_all();
 		};

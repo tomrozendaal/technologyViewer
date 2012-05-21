@@ -1,14 +1,14 @@
 <div id="main_view">
-	<ul class="nav nav-tabs" id="myTab">
-		<li class="active"><a href="#overview">Overview</a></li>
-		<li><a href="#table">Table</a></li>
-		<li><a href="#detail">Detail</a></li>
-	</ul>
-
-	<div class="tab-content">
-		<%= render 'layouts/tab_overview' %>
-		<%= render 'layouts/tab_table' %>
-		<%= render 'layouts/tab_detail' %>
-	</div>
+	<div class="container-fluid">
+      	<div class="row-fluid">
+      		<div class="span3">
+	      		<%= render 'layouts/sidebar' %>
+	      	</div>
+	      	<div class="span9">
+		      	<% if params[:sub] == 'bubbles' %>
+		      		<%= render 'sub/bubbles' %>
+		      	<% end %>
+	      	</div>
+        </div>
+    </div>
 </div>
-<%= render 'layouts/tab_bubble' %>

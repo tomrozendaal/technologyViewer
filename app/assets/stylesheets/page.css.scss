@@ -8,7 +8,7 @@ $headerBackground: #434343;
 $mainviewBackground: #ECECEC;
 
 body{
-	background: $mainviewBackground;
+	//background: $mainviewBackground;
 }
 svg{
 	z-index: 30;
@@ -79,10 +79,44 @@ svg{
 #main_view{
 	display:block;
 	width: 100%;
+
+	.container{
+		padding-top: 20px;
+	}
+
+	// BUBBLE CHART
 	#container{
-		position: absolute;
-		background: $mainviewBackground;
-		height: 100%;
+		//height: 100%;
+		padding-top: 0;
+		#vis{
+			widht: 100%;
+			height: 100%;
+		}
+	}
+	.container-fluid{
+		padding-top: 20px;
+		.span3{
+			.well{
+				padding: 19px 0px 19px 0px;
+				.nav-list > .active > a:hover {
+					color: white;
+					text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+					background-color: #08C;
+				}
+			}
+		}
+		
+		.span9{
+			.span6{
+				//width: 47%;
+				//margin: 0 0 20px 15px;
+				//padding: 10px;
+				//background-color: whiteSmoke;
+				.progress{
+					margin: 0 0 0 10px;
+				}
+			}
+		}
 	}
 }
 
@@ -194,46 +228,10 @@ svg{
 	}
 }
 
-///////////////
-// TAB PANEL
-///////////////
-#myTab{
-	background-color: #FFFFFF;
-	margin-bottom: 0;
-	padding-left: 105px;
-	.active a{
-		background-color: $mainviewBackground
-	}
-	a{
-		color: #555;
-	}	
+footer{
+	width: 150px;
+	margin: 0 auto;
 }
-
-.tab-content{
-	//margin-top:20px;
-	display:block;
-	width:100%;
-	
-	.table{
-		background-color: #FFFFFF;
-		width: 75%;
-		margin: 0 auto;
-		tbody tr:hover td, .table tbody tr:hover th{
-			background-color: #f5f5f5;
-		}
-	}
-	.hero-unit{
-		padding: 20px;
-	}
-	.tab-pane{
-		padding:20px;
-	}
-	#overview{
-		padding: 0 !important;
-	}
-}
-
-
 
 
 

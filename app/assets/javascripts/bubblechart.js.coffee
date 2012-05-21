@@ -33,7 +33,7 @@ class @BubbleChart
 		
 		# use the max total_amount in the data as the max in the scale's domain
 		max_amount = d3.max(@data, (d) -> parseInt(d.total))
-		@radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, @width / 18])
+		@radius_scale = d3.scale.pow().exponent(0.5).domain([0, max_amount]).range([2, @width / 9])
 
 		this.create_nodes([])
 		this.create_vis()
@@ -182,9 +182,9 @@ class @BubbleChart
 	show_detail_tech: (data,i,element) =>
 		fullcategory
 		switch data.category
-			when "cms" then fullcategory = "contentManagementSystems"
-			when "pl" then fullcategory = "programmingLanguages"
-			when "wf" then fullcategory = "webFrameworks"
+			when "cms" then fullcategory = "content-management-systems"
+			when "pl" then fullcategory = "programming-languages"
+			when "wf" then fullcategory = "web-frameworks"
 
 		technology = data.name
 		window.location.replace("/#{fullcategory}/#{technology}");

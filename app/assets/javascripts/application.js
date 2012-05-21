@@ -14,18 +14,17 @@
 //= require jquery_ujs
 //= require_tree .
 //= require js-routes
-$(function () {
+$(function () {	
+	$("table#example").tablesorter({ sortList: [[4,1]] });
+	/*
 	$('#myTab a').click(function (e) {
 		e.preventDefault();
 		$(this).tab('show');
 	});
-	
-	$("table#example").tablesorter({ sortList: [[4,1]] });
-
 
 	var urlpath = window.location.pathname.split('/');
 	if(urlpath[2]){
 		$('#myTab a:last').tab('show');
 	}
-
+	*/
 });

@@ -1,14 +1,17 @@
 TechnologyViewer::Application.routes.draw do
   match 'overview' => 'page#overview'
 
-  match 'programmingLanguages' => 'page#programmingLanguages'
-  match 'programmingLanguages/:tech' => 'page#programmingLanguages'
+  match 'programmingLanguages' => 'page#programmingLanguages', :path => 'programming-languages'
+  match 'programmingLanguages/*sub' => 'page#programmingLanguages', :path => 'programming-languages/*sub'
+  match 'programmingLanguages/:tech' => 'page#programmingLanguages', :path => 'programming-languages/:tech'
 
-  match 'webFrameworks' => 'page#webFrameworks'
-  match 'webFrameworks/:tech' => 'page#webFrameworks'
+  match 'webFrameworks' => 'page#webFrameworks', :path => 'web-frameworks'
+  match 'webFrameworks/*sub' => 'page#webFrameworks', :path => 'web-frameworks/*sub'
+  match 'webFrameworks/:tech' => 'page#webFrameworks', :path => 'web-frameworks/:tech'
 
-  match 'contentManagementSystems' => 'page#contentManagementSystems'
-  match 'contentManagementSystems/:tech' => 'page#contentManagementSystems'
+  match 'contentManagementSystems' => 'page#contentManagementSystems', :path => 'content-management-systems'
+  match 'contentManagementSystems/*sub' => 'page#contentManagementSystems', :path => 'content-management-systems/*sub'
+  match 'contentManagementSystems/:tech' => 'page#contentManagementSystems', :path => 'content-management-systems/:tech'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
