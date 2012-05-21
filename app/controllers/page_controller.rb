@@ -1,3 +1,4 @@
+require 'fastercsv' #
 require 'csv'
 class PageController < ApplicationController
 	def index		
