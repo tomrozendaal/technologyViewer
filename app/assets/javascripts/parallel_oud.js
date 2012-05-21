@@ -4,7 +4,7 @@ function ParallelGraph(element, csv){
   var parallelwidth = $(window).width() * 0.75
   var height = 350
 
-  var svgwidth = parallelwidth * 0.75
+  var svgwidth = parallelwidth * 0.80
   var margin = {top: 30, right: -30, bottom: 30, left: -30},
   width = svgwidth * 0.75 - margin.right - margin.left,
   height = height - margin.top - margin.bottom;
