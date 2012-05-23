@@ -2,11 +2,11 @@ module PageHelper
 	# Returns the full title on a per-page basis.
 	def full_category(category)
 		if category == "wf"
-			"webFrameworks"
+			"web-frameworks"
 		elsif category == "cms"
-			"contentManagementSystems"
+			"content-management-systems"
 		elsif category == "pl"
-			"programmingLanguages"
+			"programming-languages"
 		end
 	end
 end

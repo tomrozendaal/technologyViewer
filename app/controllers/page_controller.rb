@@ -11,15 +11,18 @@ class PageController < ApplicationController
 	def programmingLanguages
 		@csv_file = 'data/latest_pl_aspect_data.csv'
 		@current_path = programmingLanguages_path
+		@title = 'Programming Languages'
 	end
 
 	def webFrameworks
 		@csv_file = 'data/latest_wf_aspect_data.csv'
 		@current_path = webFrameworks_path
+		@title = 'Web Frameworks'
 	end
 
 	def contentManagementSystems
 		@csv_file = 'data/latest_cms_aspect_data.csv'
 		@current_path = contentManagementSystems_path
+		@title = 'Content Management Systems'
 	end
 end

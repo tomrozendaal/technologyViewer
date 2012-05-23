@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+	###
 	aspectbox = new Selectbox $('#selectboxAspect'),$('#selectAspect')
 	langbox = new Selectbox $('#selectboxLang'),$('#selectLang')
 
@@ -39,16 +40,18 @@ $ ->
 		$(checkbox).change ->
 			if checkbox.checked == true
 				unselectedAspects.splice(jQuery.inArray(checkbox.id, unselectedAspects),1);
-				window.bubbleOverview.update(unselectedAspects)
-				window.bubbleDetail.update(unselectedAspects)
+				#window.bubbleOverview.update(unselectedAspects)
+				#window.bubbleDetail.update(unselectedAspects)
 				window.parallelgraph.update(unselectedAspects)
 			if checkbox.checked == false
 				unselectedAspects.push(checkbox.id)
-				window.bubbleOverview.update(unselectedAspects)
-				window.bubbleDetail.update(unselectedAspects)
+				#window.bubbleOverview.update(unselectedAspects)
+				#window.bubbleDetail.update(unselectedAspects)
 				window.parallelgraph.update(unselectedAspects)
 				
 	getCheckbox checkbox for checkbox in aspectbox.getCheckboxes()
+
+	###
 
 
 

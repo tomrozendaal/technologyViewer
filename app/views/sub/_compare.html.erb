@@ -1,0 +1,58 @@
+<div class="well">
+	<div class="buttons">
+		<button class="action" id="selectAspect"><span class="label">Select aspects</span><span class="selectarrow">&#9660;</span></button>
+	</div>
+	<div id="parallel">
+		<div id="parallelsvg"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	var aspectbox = new Selectbox($('#selectboxAspect'),$('#selectAspect'));
+
+	function delay (ms,func){
+		setTimeout(func,ms);
+	}
+
+	$(document).click(function() {
+	    aspectbox.hide();
+	});
+
+	$('#selectAspect').click(function(e){
+		e.stopPropagation();
+		if(aspectbox.selected){
+			aspectbox.hide();
+		}
+		else{
+			aspectbox.show();
+		}
+	});
+
+	$('#selectboxAspect').click(function(e){
+		e.stopPropagation();
+	});
+	
+	var unselectedAspects = [];
+
+	function getCheckbox(checkbox){
+		$(checkbox).change(function(){
+			if(checkbox.checked == true){
+				unselectedAspects.splice(jQuery.inArray(checkbox.id, unselectedAspects),1);
+				window.parallelgraph.update(unselectedAspects);
+			}
+			if(checkbox.checked == false){
+				unselectedAspects.push(checkbox.id);
+				window.parallelgraph.update(unselectedAspects);
+			}
+		});
+	}
+	var boxes = aspectbox.getCheckboxes();
+	for(var i in boxes){
+		getCheckbox(boxes[i]);
+	}
+
+    window.parallelgraph = new ParallelGraph($('#parallel'), '<%= "/#{@csv_file}" %>');
+});
+
+</script>

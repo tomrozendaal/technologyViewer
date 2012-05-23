@@ -1,0 +1,41 @@
+<div class="well">
+	<h3>Rising</h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+		    <tr>
+				<th></th>
+				<th>Technology</th>
+				<th>Adoption</th>
+				<th>Evolution</th>
+				<th>Knowledge</th>
+				<th>Newsvalue</th>
+				<th>Sentiment</th>
+				<th>Total</th>
+				<th>Iterations rising</th>
+		    </tr>
+	  	</thead>
+	  	<tbody>
+	  		<% @key = 0 %>
+		    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
+		    	<% if @key < 10 %>
+			    	<tr>
+			    		<td><%= @key + 1 %></td>
+						<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/#{csv_obj['technology']}" %></td>
+						<td><%= csv_obj['adoption'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
+						<td><%= csv_obj['adoption'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
+						<td><%= csv_obj['knowledge'] %> <span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
+						<td><%= csv_obj['adoption'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
+						<td><%= csv_obj['sentiment'] %> <span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
+						<td><%= csv_obj['total'] %> 	<span class="change increase">(+<%= 50 + rand(30) %>%)</span></td>
+						<td>
+							<% (1...2 + rand(4)).each do |value| %>
+								<div class="arrow up"></div>
+							<% end %> 
+						</td>
+					</tr>
+				<% end %>
+				<% @key = @key + 1 %>
+			<% end %>
+		</tbody>
+	</table>
+</div>

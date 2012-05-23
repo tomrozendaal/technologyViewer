@@ -15,7 +15,15 @@
 //= require_tree .
 //= require js-routes
 $(function () {	
-	$("table#example").tablesorter({ sortList: [[4,1]] });
+	$("table#example").tablesorter(
+		{ 
+			sortList: [[7,1]],
+			headers: { 0: 
+				{
+	                sorter: false 
+	            }
+	        } 
+	    });
 	/*
 	$('#myTab a').click(function (e) {
 		e.preventDefault();

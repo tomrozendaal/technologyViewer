@@ -3,7 +3,8 @@ class @Selectbox
 		@element = element
 		@button = button
 		@selected = false
-		@top = @button.offset().top + 31
+		@top = @button.offset().top + 30
+		@left =  @button.offset().left
 		@unselected = []
 
 		@check checkbox for checkbox in @getCheckboxes()
@@ -13,7 +14,7 @@ class @Selectbox
 		@element.addClass "selected"
 		@element.css 'visibility', 'visible'
 		@element.css 'top', @top + 'px'
-		@element.css 'left', '585px'
+		@element.css 'left', @left + 'px'
 
 
 		options = 
