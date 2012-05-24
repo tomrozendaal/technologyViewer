@@ -15,15 +15,32 @@
 //= require_tree .
 //= require js-routes
 $(function () {	
-	$("table#example").tablesorter(
-		{ 
-			sortList: [[7,1]],
-			headers: { 0: 
-				{
-	                sorter: false 
-	            }
-	        } 
-	    });
+	$("table#example").tablesorter({ 
+		sortList: [[7,1]],
+		headers: { 0: 
+			{
+                sorter: false 
+            }
+        } 
+    });
+
+  console.log($('.help'));
+  /*
+  if($('.help').length >= 1){
+  	var tooltip = new CustomTooltip("tooltip", 240);
+  	$('.help').hover(function(){
+  		content = "<h1>Test</h1>";
+  		tooltip.showTooltip(content,$('.help'));
+  	});
+  }*/
+ 	$('.help').tipsy({
+ 		title: function() { return this.getAttribute('content'); }, 
+ 		gravity: 'e',
+ 		html: true 
+ 	});
+
+
+
 	/*
 	$('#myTab a').click(function (e) {
 		e.preventDefault();

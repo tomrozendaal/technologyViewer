@@ -25,4 +25,19 @@ class PageController < ApplicationController
 		@current_path = contentManagementSystems_path
 		@title = 'Content Management Systems'
 	end
+
+	def technology
+		@title = params[:tech].capitalize
+	end
+
+	def about
+		@title = 'About'
+	end
+
+	def help
+		@title = 'Help'
+	end
+
+	def search
+	end
 end
