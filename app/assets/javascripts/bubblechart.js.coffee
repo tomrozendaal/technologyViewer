@@ -187,7 +187,7 @@ class @BubbleChart
 			when "wf" then fullcategory = "web-frameworks"
 
 		technology = data.name
-		window.location.replace("/#{fullcategory}/#{technology}");
+		window.location = "/#{fullcategory}/technology/#{technology}";
 
 	highlight_bubble: () =>
 		urlpath = window.location.pathname.split('/');

@@ -39,5 +39,30 @@ class PageController < ApplicationController
 	end
 
 	def search
+		query = params[:tech].downcase
+		query_found = false
+		query_category = ''
+		FasterCSV.foreach("public/data/latest_overview_aspect_data.csv", :headers => true) do |csv_obj|
+			if csv_obj['technology'] == query
+				query_found = true
+				query_category = full_category(csv_obj['category'])
+			end
+		end
+
+		if query_found
+			redirect_to "/#{query_category}/technology/#{query}"
+		else
+			redirect_to "/404/#{query_category}/technology/#{query}"
+		end
+	end
+
+	def full_category(category)
+		if category == "wf"
+			"web-frameworks"
+		elsif category == "cms"
+			"content-management-systems"
+		elsif category == "pl"
+			"programming-languages"
+		end
 	end
 end

@@ -134,14 +134,7 @@ svg{
 			.selectarrow{
 				float:right;
 			}
-			.arrow{
-				float: left;
-				height: 10px;
-				width: 10px;
-			}
-			.left{
-				float:left;
-			}
+			
 			.help{
 				float: right;
 				margin: 5px 0 0 10px;
@@ -161,12 +154,6 @@ svg{
 					text-decoration: underline;
 				}
 			}
-			.up{
-				background-image: url('arrow-up.png');
-			}
-			.down{
-				background-image: url('arrow-down.png');
-			}
 			.span6{
 				.progress{
 					margin: 0 0 0 10px;
@@ -174,6 +161,33 @@ svg{
 			}
 		}
 	}
+}
+
+.detail{
+	h3{
+		width: 100%;
+		border-bottom: 1px solid #000000;
+		//text-decoration: underline;
+	}
+	.row{
+		margin-top: 15px;
+		margin: 0 auto;
+	}
+}
+
+.left{
+	float:left;
+}
+.arrow{
+	float: left;
+	height: 10px;
+	width: 10px;
+}
+.up{
+	background-image: url('arrow-up.png');
+}
+.down{
+	background-image: url('arrow-down.png');
 }
 
 

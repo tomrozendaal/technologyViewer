@@ -62,10 +62,11 @@ function ParallelGraph(element, csv){
       // Place Legenda
       var colors = ["#B0281A", '#164D71', '#7FA619', '#590C04', '#032439', '#3E5404', '#E9AAA3', '#9ABFD7', '#D3E6A1', '#B06E1A', '#593304', '#E9CAA3', '#861461', '#44032F', '#DD9BC8']
       element.append('<div id="legenda" style="width:' + svgwidth * 0.15 + 'px;"><ul></ul></div>');
+      var urlpath = window.location.pathname.split('/');
       var i = 0;
       svg.selectAll(".foreground").selectAll("path").each(function() { 
         d3.select(this).attr("style", "stroke:" + colors[i] + ";");
-        $('#legenda ul').append('<li tech="'+ technologies[i].technology +'"><div class="box" style="background-color:' + colors[i] + ';"></div><span class="box_text">' + technologies[i].technology + '</span></li>');
+        $('#legenda ul').append('<li tech="'+ technologies[i].technology +'"><div class="box" style="background-color:' + colors[i] + ';"></div><span class="box_text"><a href="/' + urlpath[1] +'/technology/' + technologies[i].technology +'">' + technologies[i].technology + '</a></span></li>');
         i++;
       });
 

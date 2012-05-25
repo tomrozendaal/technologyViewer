@@ -1,19 +1,20 @@
 TechnologyViewer::Application.routes.draw do
-  match 'overview' => 'page#overview'
 
-  match 'programming-languages' => 'page#programmingLanguages'
-  match 'programming-languages/technology/:tech' => 'page#technology'
-  match 'programming-languages/*sub' => 'page#programmingLanguages'
 
-  match 'web-frameworks' => 'page#webFrameworks'
-  match 'web-frameworks/technology/:tech' => 'page#technology'
-  match 'web-frameworks/*sub' => 'page#webFrameworks'
+  match 'programmingLanguages' => 'page#programmingLanguages', :path => 'programming-languages'
+  match 'programmingLanguages/technology/:tech' => 'page#technology', :path => 'programming-languages/technology/:tech'
+  match 'programmingLanguages/*sub' => 'page#programmingLanguages', :path => 'programming-languages/*sub'
 
-  match 'content-management-systems' => 'page#contentManagementSystems'
-  match 'content-management-systems/technology/:tech' => 'page#technology'
-  match 'content-management-systems/*sub' => 'page#contentManagementSystems'
+  match 'webFrameworks' => 'page#webFrameworks', :path => 'web-frameworks'
+  match 'webFrameworks/:tech' => 'page#technology', :path => 'web-frameworks/technology/:tech'
+  match 'webFrameworks/*sub' => 'page#webFrameworks', :path => 'web-frameworks/*sub'
+
+  match 'contentManagementSystems' => 'page#contentManagementSystems', :path => 'content-management-systems'
+  match 'contentManagementSystems/:tech' => 'page#technology', :path => 'content-management-systems/technology/:tech'
+  match 'contentManagementSystems/*sub' => 'page#contentManagementSystems', :path => 'content-management-systems/*sub'
 
   match 'about' => 'page#about'
+  match 'help' => 'page#help'
   match 'help/*sub' => 'page#help'
   match 'search' => 'page#search'
   # The priority is based upon order of creation:

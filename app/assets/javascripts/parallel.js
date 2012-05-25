@@ -1,4 +1,4 @@
-function ParallelGraph(element, csv){
+/*function ParallelGraph(element, csv){
   var element = element
   var csv = csv
   var parent_width = $(window).width() * 0.75
@@ -96,7 +96,4 @@ function ParallelGraph(element, csv){
     });
   }
 }
-
-
-
-
+*/
