@@ -11,17 +11,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:total] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:total] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:total]) / Float(@total_total) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -39,17 +36,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:adoption] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:adoption] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:adoption]) / Float(@total_adoption) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -69,17 +63,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:evolution] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:evolution] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:evolution]) / Float(@total_evolution) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -97,17 +88,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:knowledge] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:knowledge] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:knowledge]) / Float(@total_knowledge) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -127,17 +115,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:newsvalue] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:newsvalue] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:newsvalue]) / Float(@total_newsvalue) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>
@@ -155,17 +140,14 @@
 				    </tr>
 			  	</thead>
 			  	<tbody>
-			  		<% @key = 0 %>
-				    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
-				    	<% if @key < 5 %>
-					    	<tr>
-					    		<td><%= @key + 1 %></td>
-								<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-								<td><%= csv_obj['adoption'] %></td>
-								<td width="40%"><div class="progress"><div class="bar" style="width: <%= (@key + 3) * 10 %>%;"></div></div></td>
-							</tr>
-						<% end %>
-						<% @key = @key + 1 %>
+			  		<% @total = @top_rated.sort_by { |k, v| -v[:sentiment] }.take 5 %>
+				    <% @total.each_with_index do |tech, k| %>
+				    	<tr>
+				    		<td><%= k + 1 %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:sentiment])}/technology/#{tech[0]}" %></td>
+							<td><%= tech[1][:sentiment] %></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:sentiment]) / Float(@total_sentiment) * 100 %>%;"></div></div></td>
+						</tr>
 					<% end %>
 				</tbody>
 			</table>

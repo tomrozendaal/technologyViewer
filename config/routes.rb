@@ -1,9 +1,9 @@
 TechnologyViewer::Application.routes.draw do
 
-
   match 'programmingLanguages' => 'page#programmingLanguages', :path => 'programming-languages'
   match 'programmingLanguages/technology/:tech' => 'page#technology', :path => 'programming-languages/technology/:tech'
   match 'programmingLanguages/*sub' => 'page#programmingLanguages', :path => 'programming-languages/*sub'
+
 
   match 'webFrameworks' => 'page#webFrameworks', :path => 'web-frameworks'
   match 'webFrameworks/:tech' => 'page#technology', :path => 'web-frameworks/technology/:tech'
@@ -17,6 +17,7 @@ TechnologyViewer::Application.routes.draw do
   match 'help' => 'page#help'
   match 'help/*sub' => 'page#help'
   match 'search' => 'page#search'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

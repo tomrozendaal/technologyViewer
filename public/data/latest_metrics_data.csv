@@ -1,0 +1,61 @@
+date,technology,category,parent,amazon_books,people_amount,job_amount,positive_ratio,learning_materials,answered_percentage,age,description,logo,latest_commits
+5/2012,php,pl,php,1766,38,834,4,8900,85,15,PHP  is a widely-used general-purpose scripting language that is especially suited for Web development and can be embedded into HTML.,http://cloud.ohloh.net/attachments/42/php_med.png,455
+5/2012,java,pl,java,3395,53,3565,2,11000,85,,"Java programming language which was designed for use with the Java Platform. Programming languages are typically outside of the scope of the phrase ""platform"", although the Java programming language is listed as a core part of the Java platform. The language and runtime are therefore commonly considered a single unit.
+
+Java ME (Micro Edition): Specifies several different sets of libraries (known as profiles) for devices which are sufficiently limited that supplying the full set of Java libraries would take up unacceptably large amounts of storage.
+Java SE (Standard Edition): For general purpose use on desktop PCs, servers and similar devices.
+Java EE (Enterprise Edition): Java SE plus various APIs useful for multi-tier client-server enterprise applications.",http://cloud.ohloh.net/attachments/28497/1257323230_javalogo_med.jpg,
+5/2012,ruby,pl,ruby,159,7,712,-3,828,86,14,"Ruby is the interpreted scripting language for quick and easy object-oriented programming. It has many features to process text files and to do system management tasks (as in Perl). It is simple, straight-forward, extensible, and portable.
+
+The Ruby logo is copyright © 2006, Yukihiro Matsumoto. It is released under the terms of the Creative Commons Attribution-ShareAlike 2.5 License.",http://cloud.ohloh.net/attachments/44063/ruby_med.png,316
+5/2012,objective-c,pl,objective-c,67,4,324,3,458,83,2,The first-party Objective-C wrapper for the CloudApp API.,,0
+5/2012,c++,pl,c++,1919,15,3532,-1,3720,93,,,,
+5/2012,perl,pl,perl,347,3,1220,1,2030,94,25,"Perl is a general-purpose programming language originally developed for text manipulation and now used for a wide range of tasks including system administration, web development, network programming, GUI development, and more. Its major features include support for multiple programming paradigms (procedural, object-oriented, and functional styles), automatic memory management, built-in support for text processing, and a large collection of third-party modules.",http://cloud.ohloh.net/attachments/12939/onion_64x64_med.png,106
+5/2012,lua,pl,lua,9,0,27,-1,162,90,4,"Lua is a powerful, fast, light-weight, embeddable scripting language.
+
+Lua combines simple procedural syntax with powerful data description constructs based on associative arrays and extensible semantics. Lua is dynamically typed, runs by interpreting bytecode for a register-based virtual machine, and has automatic memory management with incremental garbage collection, making it ideal for configuration, scripting, and rapid prototyping.",http://cloud.ohloh.net/attachments/233/logo_med.gif,0
+5/2012,python,pl,python,283,6,1273,3,3620,89,22,"Python is a dynamic, object-oriented programming language that can be used for many kinds of software development. It offers strong support for integration with other languages and tools, comes with extensive standard libraries, and can be learned in a few days. Many Python programmers report substantial productivity gains and feel the language encourages the development of better code.",http://cloud.ohloh.net/attachments/52904/python_med.png,519
+5/2012,scala,pl,scala,16,3,55,1,292,94,9,"Scala is a general purpose programming language designed to express common programming patterns in a concise, elegant, and type-safe way. It smoothly integrates features of object-oriented and functional languages. It is also fully interoperable with Java.",http://cloud.ohloh.net/attachments/6608/scala_logo_med.png,420
+5/2012,clojure,pl,clojure,7,0,13,2,221,97,6,"Clojure is a dynamic programming language for the JVM. It is interactive, yet compiled, with a robust infrastructure for concurrency (STM). It is a functional dialect of Lisp, with a rich set of immutable, persistent data structures and a macro system.",http://cloud.ohloh.net/attachments/20441/clojure-icon_med.gif,17
+5/2012,coffeescript,pl,coffeescript,4,2,13,2,17,89,3,Unfancy JavaScript,http://cloud.ohloh.net/attachments/43015/coffeescript-logo-small_med.png,0
+5/2012,javascript,pl,javascript,1134,32,2192,3,3970,83,,,,
+5/2012,haskell,pl,haskell,25,3,4,2,141,98,,,,
+5/2012,lisp,pl,lisp,232,0,6,-5,244,98,,Some Lisp-Stuff,,
+5/2012,ruby-on-rails,wf,ruby,55,6,266,-3,564,80,,,,
+5/2012,codeigniter,wf,php,8,3,11,10,172,81,6,"CodeIgniter is a powerful PHP framework with a very small footprint, built for PHP coders who need a simple and elegant toolkit to create full-featured web applications. If you're a developer who lives in the real world of shared hosting accounts and clients with deadlines, and if you're tired of ponderously large and thoroughly undocumented frameworks",http://cloud.ohloh.net/attachments/5714/logos_f02_med.gif,17
+5/2012,zend-framework,wf,php,18,4,28,-1,380,81,,,,
+5/2012,cakephp,wf,php,8,2,16,2,148,77,7,"Cake is a rapid development framework for PHP which uses commonly known design patterns like ActiveRecord, Association Data Mapping, Front Controller and MVC. Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.",http://cloud.ohloh.net/attachments/3178/cake2000_med.png,101
+5/2012,spring,wf,java,353,11,499,-1,2310,77,8,"The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform. A key element of Spring is infrastructural support at the application level: Spring focuses on the ""plumbing"" of enterprise applications so that teams can focus on application-level business logic, without unnecessary ties to specific deployment environments.",http://cloud.ohloh.net/attachments/50862/SpringFramework_Twitter_Avatar-NoBorder_med.png,365
+5/2012,yii,wf,php,5,0,2,-1,32,79,4,"Yii is a high-performance component-based PHP framework for developing large-scale Web applications. Yii enables maximum reusability in Web programming and can significantly accelerate the development process. The name Yii (pronounced as [i:]) stands for easy, efficient and extensible.
+
+Yii is easy to learn and use. You only need to know PHP and object-oriented programming. You are not forced to learn a new configuration or templating language. 
+
+Yii is extremely fast. Its overhead to applications written on top of it is negligible. As a matter of fact, it is one of the most efficient PHP frameworks around. 
+
+Yii is highly reusable and extensible. Yii is purely object-oriented. Everything in Yii is a self-contained component which can be configured, reused or extended easily.",http://cloud.ohloh.net/attachments/35045/logo-body2_med.png,198
+5/2012,django,wf,python,20,0,81,1,290,84,7,"Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design.",http://cloud.ohloh.net/attachments/1352/django-logo-positive-scaled_med.png,97
+5/2012,pear,wf,php,41,1,2,4,19,75,13,PEAR is a framework and distribution system for reusable PHP components.,http://cloud.ohloh.net/attachments/2264/logo_pear_med.gif,36
+5/2012,symfony,wf,php,23,0,16,6,54,80,7,"Symfony is a web application framework for PHP5 projects.
+
+It aims to speed up the creation and maintenance of web applications, and to replace the repetitive coding tasks by power, control and pleasure.
+
+Based on the best practices of web development, thoroughly tried on several active websites, symfony aims to speed up the creation and maintenance of web applications, and to replace the repetitive coding tasks by power, control and pleasure.
+
+Symfony provides a lot of features seamlessly integrated together, such as:
+
+    * simple templating and helpers
+    * cache management
+    * smart URLs
+    * scaffolding
+    * multilingualism and I18N support
+    * object model and MVC separation
+    * Ajax support
+    * enterprise ready",http://cloud.ohloh.net/attachments/42294/00favicon48x48_med.png,698
+5/2012,wordpress,cms,php,223,4,65,2,6820,64,9,"WordPress is a state-of-the-art semantic personal publishing platform with a focus on aesthetics, web standards, and usability. What a mouthful. WordPress is both free and priceless at the same time.
+
+More simply, WordPress is what you use when you want to work with your blogging software, not fight it.",http://cloud.ohloh.net/attachments/16596/WordPress-ohloh_med.gif,697
+5/2012,drupal,cms,php,114,4,77,7,836,74,12,"Drupal is an open source content management platform, allowing an individual or a community of users to easily publish, manage and organize a great variety of content on a website. 
+
+Equipped with a powerful blend of features, Drupal is able to support community sites, blogs, portals and more.
+
+This is Drupal's core, you can find the contributed modules page at http://ohloh.net/projects/3502.",http://cloud.ohloh.net/attachments/343/druplicon.large_med.png,331

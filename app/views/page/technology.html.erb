@@ -9,9 +9,9 @@
 			        <div class="span2">
 			          	<h3>Adoption</h3>
 			           	<table>
-			           		<tr><td>Rating:</td><td>115</td></tr>
-			           		<tr><td>Jobs:</td><td>123.000</td></tr>
-			           		<tr><td>People:</td><td>879.344</td></tr>
+			           		<tr><td>Rating:</td><td><%= @tech_data['adoption'] %></td></tr>
+			           		<tr><td>Jobs:</td><td><%= @tech_data['jobs'] %></td></tr>
+			           		<tr><td>People:</td><td><%= @tech_data['people'] %></td></tr>
 			           	</table>
 			        </div>
 			        <div class="span2">
@@ -25,10 +25,10 @@
 			        <div class="span2">
 			          	<h3>Knowledge</h3>
 			          	<table>
-			           		<tr><td>Rating:</td><td>115</td></tr>
-			           		<tr><td>Books:</td><td>123.000</td></tr>
-			           		<tr><td>Learning materials:</td><td>879.344</td></tr>
-			           		<tr><td>Questions answered:</td><td>91%</td></tr>
+			           		<tr><td>Rating:</td><td><%= @tech_data['knowledge'] %></td></tr>
+			           		<tr><td>Books:</td><td><%= @tech_data['books'] %></td></tr>
+			           		<tr><td>Learning materials:</td><td><%= @tech_data['learning_materials'] %></td></tr>
+			           		<tr><td>Questions answered:</td><td><%= @tech_data['answered_percentage'] %>%</td></tr>
 			           	</table>
 			        </div>
 			        <div class="span2">
@@ -42,11 +42,11 @@
 			        <div class="span2">
 				        <h3>Sentiment</h3>
 				        <table>
-			           		<tr><td>Rating:</td><td>115</td></tr>
+			           		<tr><td>Rating:</td><td><%= @tech_data['sentiment'] %></td></tr>
 			           		<tr><td>Positive mentions:</td><td>124</td></tr>
 			           		<tr><td>Neutral mentions:</td><td>472</td></tr>
 			           		<tr><td>Negative mentions:</td><td>14</td></tr>
-			           		<tr><td>Positive ratio:</td><td>9:1</td></tr>
+			           		<tr><td>Positive ratio:</td><td><%= @tech_data['ratio'] %>:1</td></tr>
 			           	</table>
 			       </div>
 			    </div>
