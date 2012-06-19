@@ -2,11 +2,15 @@
 	<div class="container detail">
 		<div class="well">
 			<h1><%= @title %></h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean quis dolor odio. Phasellus congue hendrerit adipiscing. Curabitur malesuada, tortor cursus molestie aliquet, enim turpis tempus purus, at pellentesque purus felis viverra lacus. Cras velit quam, condimentum non gravida at, bibendum vel ipsum. Nunc tincidunt gravida arcu ut faucibus. Curabitur adipiscing tincidunt scelerisque. Fusce nec justo enim, a facilisis arcu. Aenean mattis tellus arcu, et tincidunt ante. Quisque urna velit, pretium eget vehicula ut, rutrum non purus. Morbi in purus ac ligula tristique porta. Donec et sapien quis turpis sagittis ultricies in eget sem. Integer lacinia hendrerit lorem, eget pellentesque ante lobortis non. Maecenas congue orci quis libero commodo porta. Nunc rutrum mattis est, eu egestas neque eleifend a.</p>
+			<% if @tech_data['logo'] %>
+				<img src="<%= @tech_data['logo'] %>" alt="logo" style="float:left; margin: 5px 10px 0px 0px" />
 
+			<% end %>
+			<p><%= @tech_data['description'] %></p>
+			<div class="clear"></div>
 			<div class="container detail">
 				<div class="row">
-			        <div class="span2">
+			        <div class="aspectinfo">
 			          	<h3>Adoption</h3>
 			           	<table>
 			           		<tr><td>Rating:</td><td><%= @tech_data['adoption'] %></td></tr>
@@ -14,15 +18,15 @@
 			           		<tr><td>People:</td><td><%= @tech_data['people'] %></td></tr>
 			           	</table>
 			        </div>
-			        <div class="span2">
+			        <div class="aspectinfo">
 				        <h3>Evolution</h3>
 				        <table>
-			           		<tr><td>Rating:</td><td>115</td></tr>
-			           		<tr><td>Jobs:</td><td>123.000</td></tr>
-			           		<tr><td>People:</td><td>879.344</td></tr>
+			           		<tr><td>Rating:</td><td><%= @tech_data['evolution'] %></td></tr>
+			           		<tr><td>Technology issues:</td><td>123</td></tr>
+			           		<tr><td>Release history:</td><td>879</td></tr>
 			           	</table>
 			       </div>
-			        <div class="span2">
+			        <div class="aspectinfo">
 			          	<h3>Knowledge</h3>
 			          	<table>
 			           		<tr><td>Rating:</td><td><%= @tech_data['knowledge'] %></td></tr>
@@ -31,15 +35,15 @@
 			           		<tr><td>Questions answered:</td><td><%= @tech_data['answered_percentage'] %>%</td></tr>
 			           	</table>
 			        </div>
-			        <div class="span2">
+			        <div class="aspectinfo">
 			          	<h3>Newsworthiness</h3>
 			           	<table>
-			           		<tr><td>Rating:</td><td>115</td></tr>
-			           		<tr><td>Popularity:</td><td>124</td></tr>
-			           		<tr><td>Trends:</td><td>472</td></tr>
+			           		<tr><td>Rating:</td><td><%= @tech_data['newsworthiness'] %></td></tr>
+			           		<tr><td>Actuality:</td><td><%= @tech_data['actuality'] %></td></tr>
+			           		<tr><td>Attention:</td><td>472</td></tr>
 			           	</table>
 			        </div>
-			        <div class="span2">
+			        <div class="aspectinfo">
 				        <h3>Sentiment</h3>
 				        <table>
 			           		<tr><td>Rating:</td><td><%= @tech_data['sentiment'] %></td></tr>
@@ -51,6 +55,72 @@
 			       </div>
 			    </div>
 			</div>
+			<hr/>
+			<div class="container detail">
+				<div id="line-detail"></div>
+			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(function () {	
+	    var lineChart;
+	    var urlpath = window.location.pathname.split('/');
+	    if(urlpath[1]){
+	        lineChart = new Highcharts.Chart({
+	            chart: {
+	                renderTo: 'line-detail',
+	                type: 'line'
+	            },
+	            title: {
+	                text: 'Aspects development over time',
+	                x: -20 //center
+	            },
+	            xAxis: {
+	                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+	            },
+	            yAxis: {
+	                title: {
+	                    text: 'Rating'
+	                },
+	                plotLines: [{
+	                    value: 0,
+	                    width: 1,
+	                    color: '#808080'
+	                }]
+	            },
+	            tooltip: {
+	                formatter: function() {
+	                        return '<b>'+ this.series.name +'</b><br/>'+
+	                        this.x +': '+ this.y;
+	                }
+	            },
+	            legend: {
+	                layout: 'vertical',
+	                align: 'right',
+	                verticalAlign: 'top',
+	                x: -10,
+	                y: 100,
+	                borderWidth: 0
+	            },
+	            series: [{
+	                name: 'Adoption',
+	                data: [27.0, 26.9, 29.5, 24.5, 21.2, 21.5, 17.2, 16.5, 13.3, 12.3, 13.9, 11.6]
+	            }, {
+	                name: 'Evolution',
+	                data: [0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
+	            }, {
+	                name: 'Knowledge',
+	                data: [0.9, 1.6, 3.5, 8.4, 13.5, 17.0, 18.6, 19.9, 24.3, 27.0, 27.9, 29.0]
+	            }, {
+	                name: 'Newsworthiness',
+	                data: [1.9, 2.2, 5.7, 6.5, 9.9, 9.2, 11.0, 12.6, 13.2, 10.3, 6.6, 4.8]
+	            }, {
+	                name: 'Sentiment',
+	                data: [1.1, 4.2, 5.2, 9.5, 10.5, 5.2, 6.0, 8.6, 11.2, 9.3, 13.6, 14.8]
+	            }]
+	        });  
+	    }   
+	});
+</script>

@@ -144,9 +144,9 @@
 				    <% @total.each_with_index do |tech, k| %>
 				    	<tr>
 				    		<td><%= k + 1 %></td>
-				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:sentiment])}/technology/#{tech[0]}" %></td>
+				    		<td><%= link_to tech[0].to_s.capitalize, "/#{full_category(tech[1][:category])}/technology/#{tech[0]}" %></td>
 							<td><%= tech[1][:sentiment] %></td>
-							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:sentiment]) / Float(@total_sentiment) * 100 %>%;"></div></div></td>
+							<td width="40%"><div class="progress"><div class="bar" style="width: <%= Float(tech[1][:sentiment]) / Float(@total_sentiment) * 10 %>%;"></div></div></td>
 						</tr>
 					<% end %>
 				</tbody>

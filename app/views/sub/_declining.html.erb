@@ -22,9 +22,9 @@
 			    		<td><%= @key + 1 %></td>
 						<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
 						<td><%= csv_obj['adoption'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
-						<td><%= csv_obj['adoption'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
+						<td><%= csv_obj['evolution'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
 						<td><%= csv_obj['knowledge'] %> <span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
-						<td><%= csv_obj['adoption'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
+						<td><%= csv_obj['newsworthiness'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
 						<td><%= csv_obj['sentiment'] %> <span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
 						<td><%= csv_obj['total'] %> 	<span class="change decrease">(-<%= 1 + rand(34) %>%)</span></td>
 						<td>

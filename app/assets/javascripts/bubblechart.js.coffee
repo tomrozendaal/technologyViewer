@@ -57,6 +57,12 @@ class @BubbleChart
 				if aspect == 'sentiment'
 					radius = radius - d.sentiment
 					total_rating = total_rating - d.sentiment
+				if aspect == 'evolution'
+					radius = radius - d.evolution
+					total_rating = total_rating - d.evolution
+				if aspect == 'newsworthiness'
+					radius = radius - d.newsworthiness
+					total_rating = total_rating - d.newsworthiness
 
 			total_radius = @return_value(radius)
 						

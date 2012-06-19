@@ -9,6 +9,8 @@ class PageController < ApplicationController
 	end
 
 	def programmingLanguages
+		#redirect_to :action => 'programmingLanguages', :sub => 'bubbles'
+
 		@csv_file = 'data/latest_pl_aspect_data.csv'
 		@current_path = programmingLanguages_path
 		@title = 'Programming Languages'
@@ -24,10 +26,10 @@ class PageController < ApplicationController
 			@top_rated["#{csv_obj['technology']}".to_sym] = 
 				{
 					:adoption => Integer(csv_obj['adoption']), 
-					:evolution => Integer(csv_obj['adoption']), 
+					:evolution => Integer(csv_obj['evolution']), 
 					:knowledge => Integer(csv_obj['knowledge']), 
 					:sentiment => Integer(csv_obj['sentiment']),
-					:newsvalue => Integer(csv_obj['adoption']),
+					:newsvalue => Integer(csv_obj['newsworthiness']),
 					:total => Integer(csv_obj['total']),
 					:category => csv_obj['category']
 				}
@@ -59,13 +61,8 @@ class PageController < ApplicationController
 	def technology
 		@title = params[:tech].capitalize
 		@tech_data = {}
-		FasterCSV.foreach("public/data/latest_overview_aspect_data.csv", :headers => true) do |csv_obj|
-			if csv_obj['technology'] == params[:tech]
-				@tech_data['adoption'] = csv_obj['adoption']
-				@tech_data['knowledge'] = csv_obj['knowledge']
-				@tech_data['sentiment'] = csv_obj['sentiment']
-			end
-		end
+		
+		category = ""
 		FasterCSV.foreach("public/data/latest_metrics_data.csv", :headers => true) do |csv_obj|
 			if csv_obj['technology'] == params[:tech]
 				# Adoption
@@ -79,6 +76,24 @@ class PageController < ApplicationController
 
 				# Sentiment
 				@tech_data['ratio'] = ts csv_obj['positive_ratio']
+
+				# Newsworthiness
+				@tech_data['actuality'] = ts csv_obj['newsworthiness']
+
+				# Miscellaneous
+				@tech_data['description'] = csv_obj['description']
+				@tech_data['logo'] = csv_obj['logo']
+				category = csv_obj['category']
+			end
+		end
+
+		FasterCSV.foreach("public/data/latest_#{category}_aspect_data.csv", :headers => true) do |csv_obj|
+			if csv_obj['technology'] == params[:tech]
+				@tech_data['adoption'] = csv_obj['adoption']
+				@tech_data['knowledge'] = csv_obj['knowledge']
+				@tech_data['sentiment'] = csv_obj['sentiment']
+				@tech_data['newsworthiness'] = csv_obj['newsworthiness']
+				@tech_data['evolution'] = csv_obj['evolution']
 			end
 		end
 	end

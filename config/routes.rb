@@ -1,15 +1,15 @@
 TechnologyViewer::Application.routes.draw do
 
-  match 'programmingLanguages' => 'page#programmingLanguages', :path => 'programming-languages'
+  match 'programmingLanguages' => 'page#programmingLanguages', :path => 'programming-languages', :sub => 'best-rated'
   match 'programmingLanguages/technology/:tech' => 'page#technology', :path => 'programming-languages/technology/:tech'
   match 'programmingLanguages/*sub' => 'page#programmingLanguages', :path => 'programming-languages/*sub'
 
 
-  match 'webFrameworks' => 'page#webFrameworks', :path => 'web-frameworks'
+  match 'webFrameworks' => 'page#webFrameworks', :path => 'web-frameworks', :sub => 'best-rated'
   match 'webFrameworks/:tech' => 'page#technology', :path => 'web-frameworks/technology/:tech'
   match 'webFrameworks/*sub' => 'page#webFrameworks', :path => 'web-frameworks/*sub'
 
-  match 'contentManagementSystems' => 'page#contentManagementSystems', :path => 'content-management-systems'
+  match 'contentManagementSystems' => 'page#contentManagementSystems', :path => 'content-management-systems', :sub => 'best-rated'
   match 'contentManagementSystems/:tech' => 'page#technology', :path => 'content-management-systems/technology/:tech'
   match 'contentManagementSystems/*sub' => 'page#contentManagementSystems', :path => 'content-management-systems/*sub'
 

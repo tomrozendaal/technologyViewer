@@ -1,13 +1,13 @@
 <div id="header">
-	<%= link_to "Logo hier zo", root_path, :id => "logo" %>
+	<%= link_to "Technology Relevance Model", root_path, :id => "logo" %>
 	<div class="buttons">
 		<div id="toprow">
 			<a href="<%= root_path %>"><button class="action" id="technologyOverview"><span class="label">Home</span></button></a>
-			<a href="<%= programmingLanguages_path %>"><button class="action blue" id="programmingLanguages"><span class="label">Programming Languages</span></button></a>
+			<a href="<%= programmingLanguages_path %>/best-rated"><button class="action blue" id="programmingLanguages"><span class="label">Programming Languages</span></button></a>
 		</div> 
 		<div id="bottomrow">
-			<a href="<%= webFrameworks_path %>"><button class="action red" id="webFrameworks"><span class="label">Web Frameworks</span></button></a>
-			<a href="<%= contentManagementSystems_path %>"><button class="action green" id="contentManagementSystems"><span class="label">Content Management Systems</span></button></a>
+			<a href="<%= webFrameworks_path %>/best-rated"><button class="action red" id="webFrameworks"><span class="label">Web Frameworks</span></button></a>
+			<a href="<%= contentManagementSystems_path %>/best-rated"><button class="action green" id="contentManagementSystems"><span class="label">Content Management Systems</span></button></a>
 		</div>	
 	</div>
 	<div class="right">
