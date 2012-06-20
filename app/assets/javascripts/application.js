@@ -16,15 +16,15 @@
 //= require js-routes
 $(function () {	
 	$("table#example").tablesorter({ 
-		sortList: [[7,1]],
-		headers: { 0: 
+		sortList: [[6,1]],
+		/*headers: { 0: 
 			{
                 sorter: false 
             }
-        } 
+        }*/
     });
 
-  console.log($('.help'));
+  //console.log($('.help'));
   /*
   if($('.help').length >= 1){
   	var tooltip = new CustomTooltip("tooltip", 240);

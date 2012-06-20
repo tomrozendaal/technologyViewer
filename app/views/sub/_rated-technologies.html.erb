@@ -1,0 +1,31 @@
+<div class="well">
+	<h3 class="left">Rated technologies</h3><div class="help" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper lobortis velit, non pulvinar nisi auctor ac. Nam sapien orci, dictum eget gravida vitae, pretium ut risus. Suspendisse pellentesque arcu vel lacus pretium non ornare dui egestas. Nullam molestie posuere arcu sit amet pharetra. Nam eget erat sem, id fringilla sem. Curabitur ante risus, venenatis et dignissim non, luctus sed dolor."></div>
+	<div class="tab-pane" id="table">
+		<table class="table table-bordered table-striped tablesorter" id="example">
+			<thead>
+			    <tr>
+					<th>Name</th>
+					<th>Adoption</th>
+					<th>Evolution</th>
+					<th>Knowledge</th>
+					<th>Newsworthiness</th>
+					<th>Sentiment</th>
+					<th>Total</th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+			    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
+			    	<tr>
+						<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
+						<td><%= csv_obj['adoption'] %></td>
+						<td><%= csv_obj['evolution'] %></td>
+						<td><%= csv_obj['knowledge'] %></td>
+						<td><%= csv_obj['newsworthiness'] %></td>
+						<td><%= csv_obj['sentiment'] %></td>
+						<td><%= csv_obj['total'] %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

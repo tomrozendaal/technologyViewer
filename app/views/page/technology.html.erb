@@ -1,65 +1,72 @@
 <div id="main_view">
-	<div class="container detail">
-		<div class="well">
-			<h1><%= @title %></h1>
-			<% if @tech_data['logo'] %>
-				<img src="<%= @tech_data['logo'] %>" alt="logo" style="float:left; margin: 5px 10px 0px 0px" />
-
-			<% end %>
-			<p><%= @tech_data['description'] %></p>
-			<div class="clear"></div>
-			<div class="container detail">
-				<div class="row">
-			        <div class="aspectinfo">
-			          	<h3>Adoption</h3>
-			           	<table>
-			           		<tr><td>Rating:</td><td><%= @tech_data['adoption'] %></td></tr>
-			           		<tr><td>Jobs:</td><td><%= @tech_data['jobs'] %></td></tr>
-			           		<tr><td>People:</td><td><%= @tech_data['people'] %></td></tr>
-			           	</table>
-			        </div>
-			        <div class="aspectinfo">
-				        <h3>Evolution</h3>
-				        <table>
-			           		<tr><td>Rating:</td><td><%= @tech_data['evolution'] %></td></tr>
-			           		<tr><td>Technology issues:</td><td>123</td></tr>
-			           		<tr><td>Release history:</td><td>879</td></tr>
-			           	</table>
-			       </div>
-			        <div class="aspectinfo">
-			          	<h3>Knowledge</h3>
-			          	<table>
-			           		<tr><td>Rating:</td><td><%= @tech_data['knowledge'] %></td></tr>
-			           		<tr><td>Books:</td><td><%= @tech_data['books'] %></td></tr>
-			           		<tr><td>Learning materials:</td><td><%= @tech_data['learning_materials'] %></td></tr>
-			           		<tr><td>Questions answered:</td><td><%= @tech_data['answered_percentage'] %>%</td></tr>
-			           	</table>
-			        </div>
-			        <div class="aspectinfo">
-			          	<h3>Newsworthiness</h3>
-			           	<table>
-			           		<tr><td>Rating:</td><td><%= @tech_data['newsworthiness'] %></td></tr>
-			           		<tr><td>Actuality:</td><td><%= @tech_data['actuality'] %></td></tr>
-			           		<tr><td>Attention:</td><td>472</td></tr>
-			           	</table>
-			        </div>
-			        <div class="aspectinfo">
-				        <h3>Sentiment</h3>
-				        <table>
-			           		<tr><td>Rating:</td><td><%= @tech_data['sentiment'] %></td></tr>
-			           		<tr><td>Positive mentions:</td><td>124</td></tr>
-			           		<tr><td>Neutral mentions:</td><td>472</td></tr>
-			           		<tr><td>Negative mentions:</td><td>14</td></tr>
-			           		<tr><td>Positive ratio:</td><td><%= @tech_data['ratio'] %>:1</td></tr>
-			           	</table>
-			       </div>
-			    </div>
+	<div class="container-fluid detail">
+		<div class="row-fluid">
+      		<div class="span3">
+	      		<%= render 'layouts/sidebar' %>
+	      	</div>
+		    <div class="span7">
+				<div class="well">
+					<h1><%= @tech_title %></h1>
+					<% if @tech_data['logo'] %>
+						<img src="<%= @tech_data['logo'] %>" alt="logo" style="float:left; margin: 5px 10px 0px 0px" />
+					<% end %>
+					<p style="text-align:justify;"><%= @tech_data['description'] %></p>
+					<div class="clear"></div>
+					<div class="detail">
+						<div class="row-fluid show-grid">
+							<div class="span1">&nbsp</div>
+					        <div class="span2">
+					          	<h3>Adoption</h3>
+					           	<table>
+					           		<tr><td>Rating:</td><td><%= @tech_data['adoption'] %></td></tr>
+					           		<tr><td>Jobs:</td><td><%= @tech_data['jobs'] %></td></tr>
+					           		<tr><td>People:</td><td><%= @tech_data['people'] %></td></tr>
+					           	</table>
+					        </div>
+					        <div class="span2">
+						        <h3>Evolution</h3>
+						        <table>
+					           		<tr><td>Rating:</td><td><%= @tech_data['evolution'] %></td></tr>
+					           		<tr><td>Technology issues:</td><td>123</td></tr>
+					           		<tr><td>Release history:</td><td>879</td></tr>
+					           	</table>
+					       </div>
+					        <div class="span2">
+					          	<h3>Knowledge</h3>
+					          	<table>
+					           		<tr><td>Rating:</td><td><%= @tech_data['knowledge'] %></td></tr>
+					           		<tr><td>Books:</td><td><%= @tech_data['books'] %></td></tr>
+					           		<tr><td>Learning materials:</td><td><%= @tech_data['learning_materials'] %></td></tr>
+					           		<tr><td>Questions answered:</td><td><%= @tech_data['answered_percentage'] %>%</td></tr>
+					           	</table>
+					        </div>
+					        <div class="span2">
+					          	<h3>Newsworthiness</h3>
+					           	<table>
+					           		<tr><td>Rating:</td><td><%= @tech_data['newsworthiness'] %></td></tr>
+					           		<tr><td>Actuality:</td><td><%= @tech_data['actuality'] %></td></tr>
+					           		<tr><td>Attention:</td><td>472</td></tr>
+					           	</table>
+					        </div>
+					        <div class="span2">
+						        <h3>Sentiment</h3>
+						        <table>
+					           		<tr><td>Rating:</td><td><%= @tech_data['sentiment'] %></td></tr>
+					           		<tr><td>Positive mentions:</td><td>124</td></tr>
+					           		<tr><td>Neutral mentions:</td><td>472</td></tr>
+					           		<tr><td>Negative mentions:</td><td>14</td></tr>
+					           		<tr><td>Positive ratio:</td><td><%= @tech_data['ratio'] %>:1</td></tr>
+					           	</table>
+					       </div>
+					       <div class="span1">&nbsp</div>
+					    </div>
+					</div>
+					<hr/>
+					<div class="">
+						<div id="line-detail"></div>
+					</div>
+				</div>
 			</div>
-			<hr/>
-			<div class="container detail">
-				<div id="line-detail"></div>
-			</div>
-		</div>
 	</div>
 </div>
 <script type="text/javascript">
@@ -122,5 +129,13 @@
 	            }]
 	        });  
 	    }   
+
+	    $(window).resize(function() 
+		{    
+		    lineChart.setSize(
+		       $(".span7").width() - 40
+		    );  
+		    lineChart.redraw() 
+		});
 	});
 </script>

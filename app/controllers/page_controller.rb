@@ -59,7 +59,9 @@ class PageController < ApplicationController
 	end
 
 	def technology
-		@title = params[:tech].capitalize
+		@current_path = "/#{request.fullpath.split("/")[1]}"
+		@title = request.fullpath.split("/")[1]
+		@tech_title = params[:tech].capitalize
 		@tech_data = {}
 		
 		category = ""
