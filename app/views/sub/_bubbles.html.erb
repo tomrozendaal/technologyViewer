@@ -60,6 +60,7 @@
 
 		render_overview = function(csv) {
 			window.bubbleOverview = new BubbleChart(csv, $("#vis").width(), $("#vis").width() * 0.66, "#vis");
+			$('#legenda').css('top', $("#vis").width() * 0.33);
 			window.bubbleOverview.start();
 			window.bubbleOverview.display_group_all();
 		};

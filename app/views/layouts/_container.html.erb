@@ -1,0 +1,33 @@
+<div id="main_view">
+	<div class="container-fluid">
+      	<div class="row-fluid">
+      		<div class="span3">
+	      		<%= render 'layouts/sidebar' %>
+	      	</div>
+	      	<div class="span9">
+		      	<% if params[:sub] == 'bubbles' %>
+		      		<%= render 'sub/bubbles' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'best-rated' %>
+		      		<%= render 'sub/best-rated' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'rising' %>
+		      		<%= render 'sub/rising' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'declining' %>
+		      		<%= render 'sub/declining' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'compare' %>
+		      		<%= render 'sub/compare' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'timeline' %>
+		      		<%= render 'sub/timeline' %>
+		      	<% end %>
+		      	<% if params[:sub] == 'rated-technologies' %>
+		      		<%= render 'sub/rated-technologies' %>
+		      	<% end %>
+	      	</div>
+        </div>
+    </div>
+</div>
+

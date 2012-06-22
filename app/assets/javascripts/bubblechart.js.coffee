@@ -25,10 +25,11 @@ class @BubbleChart
 		@circles = null
 
 		# nice looking colors - no reason to buck the trend
-		@colors = []
-		@colors["wf"] = "#B0281A"
-		@colors["pl"] = "#2F5BB7"
-		@colors["cms"] = "#2D6200"
+		#@colors = []
+		#@colors["wf"] = "#B0281A"
+		#@colors["pl"] = "#2F5BB7"
+		#@colors["cms"] = "#2D6200"
+		@colors = ["#B0281A", '#164D71', '#7FA619', '#590C04', '#032439', '#3E5404', '#E9AAA3', '#9ABFD7', '#D3E6A1', '#B06E1A', '#593304', '#E9CAA3', '#861461', '#44032F', '#DD9BC8']
 
 		
 		# use the max total_amount in the data as the max in the scale's domain
@@ -37,13 +38,15 @@ class @BubbleChart
 
 		this.create_nodes([])
 		this.create_vis()
-		this.highlight_bubble()
+		#this.highlight_bubble()
 
 	# create node objects from original data
 	# that will serve as the data behind each
 	# bubble in the vis, then add each node
 	# to @nodes to be used later
 	create_nodes: (unselectedAspects) =>
+		i = 0
+		$('#legenda ul').empty()
 		@data.forEach (d) =>
 			radius = d.total
 			total_rating = d.total
@@ -74,7 +77,7 @@ class @BubbleChart
 				category = "Programming Language"
 
 			node = {
-				id: d.id
+				id: i
 				radius: @radius_scale(parseInt(total_radius))
 				rating: total_rating
 				name: d.technology
@@ -84,8 +87,10 @@ class @BubbleChart
 				y: Math.random() * 800
 				selected: false
 			}
+			$('#legenda ul').append('<li ref="' + d.technology + '"><div class="box" style="background-color:' + @colors[i] + ';"></div><span class="box_text"><a href="#">' + d.technology + '</a></span></li>')
 
 			@nodes.push node
+			i++
 		@nodes.sort (a,b) -> b.rating - a.rating
 
 
@@ -108,13 +113,18 @@ class @BubbleChart
 		# see transition below
 		@circles.enter().append("circle")
 			.attr("r", 0)
-			.attr("fill", (d) => @colors[d.category])
+			.attr("fill", (d) => @colors[d.id])
 			.attr("stroke-width", 2)
 			.attr("stroke", (d) => d3.rgb(@colors[d.category]).darker())
 			.attr("id", (d) -> "bubble_#{d.name}")
 			.on("mouseover", (d,i) -> that.show_details(d,i,this))
 			.on("mouseout", (d,i) -> that.hide_details(d,i,this))
 			.on("click", (d,i) -> that.show_detail_tech(d,i,this))
+
+		$('#legenda ul li').on("mouseover", () -> that.highlight_bubble($(this).attr('ref'))) 
+		$('#legenda ul li').on("mouseout", () -> that.refill_bubbles()) 
+		$('#legenda ul li').on("click", () -> that.redirect_detail_tech($(this).attr('ref')))
+
 
 		# Fancy transition to make bubbles appear, ending with the
 		# correct radius
@@ -176,7 +186,7 @@ class @BubbleChart
 		this.create_vis()
 		this.start()
 		this.display_group_all()
-		this.highlight_bubble()
+		#this.highlight_bubble()
 
 
 	return_value: (value) =>
@@ -195,17 +205,36 @@ class @BubbleChart
 		technology = data.name
 		window.location = "/#{fullcategory}/technology/#{technology}";
 
-	highlight_bubble: () =>
-		urlpath = window.location.pathname.split('/');
-		@circles.each((d) ->			
-			if d.name == urlpath[2]
-				@colors = []
-				@colors["wf"] = "#B0281A"
-				@colors["pl"] = "#2F5BB7"
-				@colors["cms"] = "#2D6200"
-				console.log(@colors)
-				d3.select(this).attr("fill", => d3.rgb(@colors[d.category]).darker())
+	redirect_detail_tech: (tech) =>
+		@circles.each((d) ->	
+			if d.name == tech	
+				fullcategory			
+				switch d.category
+					when "cms" then fullcategory = "content-management-systems"
+					when "pl" then fullcategory = "programming-languages"
+					when "wf" then fullcategory = "web-frameworks"
+
+				technology = d.name
+				window.location = "/#{fullcategory}/technology/#{technology}";	
 		)
+
+	highlight_bubble: (name) =>
+		colors = ["#B0281A", '#164D71', '#7FA619', '#590C04', '#032439', '#3E5404', '#E9AAA3', '#9ABFD7', '#D3E6A1', '#B06E1A', '#593304', '#E9CAA3', '#861461', '#44032F', '#DD9BC8']
+		@circles.each((d) ->	
+			d3.select(this).attr("fill", => d3.rgb(colors[d.id]))	
+			$(this).css({ opacity: 0.3 })	
+			if d.name == name				
+				d3.select(this).attr("fill", => d3.rgb(colors[d.id]))
+				$(this).css({ opacity: 1.0 })
+		)
+
+	refill_bubbles: () =>
+		colors = ["#B0281A", '#164D71', '#7FA619', '#590C04', '#032439', '#3E5404', '#E9AAA3', '#9ABFD7', '#D3E6A1', '#B06E1A', '#593304', '#E9CAA3', '#861461', '#44032F', '#DD9BC8']
+		@circles.each((d) ->	
+			d3.select(this).attr("fill", => d3.rgb(colors[d.id]))		
+			$(this).css({ opacity: 1.0 })
+		)
+
 
 
 	show_details: (data, i, element) =>

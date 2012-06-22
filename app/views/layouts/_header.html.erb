@@ -7,13 +7,13 @@
 		</div> 
 		<div id="bottomrow">
 			<a href="<%= webFrameworks_path %>/best-rated"><button class="action red" id="webFrameworks"><span class="label">Web Frameworks</span></button></a>
-			<a href="<%= contentManagementSystems_path %>/best-rated"><button class="action green" id="contentManagementSystems"><span class="label">Content Management Systems</span></button></a>
+			<a href="<%= contentManagementSystems_path %>/best-rated"><button class="action green" id="contentManagementSystems"><span class="label">Content Management</span></button></a>
 		</div>	
 	</div>
 	<div class="right">
 		<form action="/search" method="get" class="well form-search" autocomplete="off">
 			<%= @technologies = [] %>
-			<% FasterCSV.foreach("public/data/latest_overview_aspect_data.csv", :headers => true) do |csv_obj| %>
+			<% FasterCSV.foreach("public/data/technologies.csv", :headers => true) do |csv_obj| %>
 					<% @technologies << "#{csv_obj['technology'].capitalize}" %>
 			<% end %>
 			<input type="text" name="tech" class="span3" style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[<%= @technologies.map { |i| "\"" + i.to_s + "\"" }.join(",") %>]">

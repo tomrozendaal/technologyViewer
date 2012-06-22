@@ -11,7 +11,7 @@
 						<img src="<%= @tech_data['logo'] %>" alt="logo" style="float:left; margin: 5px 10px 0px 0px" />
 					<% end %>
 					<p style="text-align:justify;"><%= @tech_data['description'] %></p>
-					<div class="clear"></div>
+					<div class="clear"></div><br/>
 					<div class="detail">
 						<div class="row-fluid show-grid">
 							<div class="span1">&nbsp</div>
@@ -77,7 +77,8 @@
 	        lineChart = new Highcharts.Chart({
 	            chart: {
 	                renderTo: 'line-detail',
-	                type: 'line'
+	                type: 'line',
+	                zoomType: 'x'
 	            },
 	            title: {
 	                text: 'Aspects development over time',
