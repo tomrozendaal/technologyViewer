@@ -1,0 +1,15 @@
+date,technology,category,parent,adoption,knowledge,sentiment,newsworthiness,evolution,total
+6/2012,php,pl,php,101,268,-20,158,268,618
+6/2012,java,pl,java,369,408,10,403,0,788
+6/2012,ruby,pl,ruby,60,38,20,37,279,398
+6/2012,objective-c,pl,objective-c,31,26,0,16,18,76
+6/2012,c++,pl,c++,354,205,10,281,0,570
+6/2012,perl,pl,perl,119,69,-10,312,235,413
+6/2012,lua,pl,lua,3,19,-10,9,37,51
+6/2012,python,pl,python,114,85,10,105,316,526
+6/2012,scala,pl,scala,6,22,10,7,176,215
+6/2012,clojure,pl,clojure,1,21,20,2,58,101
+6/2012,coffeescript,pl,coffeescript,2,17,10,0,28,57
+6/2012,javascript,pl,javascript,230,157,10,59,0,397
+6/2012,haskell,pl,haskell,1,22,10,2,0,33
+6/2012,lisp,pl,lisp,4,38,-20,3,0,23

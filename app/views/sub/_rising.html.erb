@@ -16,17 +16,18 @@
 	  	</thead>
 	  	<tbody>
 	  		<% @key = 0 %>
-		    <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
+	  		<% @rising = @rising_tech.sort_by { |k, v| -v[:increase] } %>
+		    <% @rising.each do |rising| %>
 		    	<% if @key < 10 %>
 			    	<tr>
 			    		<td><%= @key + 1 %></td>
-						<td><%= link_to csv_obj['technology'].capitalize, "/#{full_category(csv_obj['category'])}/technology/#{csv_obj['technology']}" %></td>
-						<td><%= csv_obj['adoption'] %> 		<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
-						<td><%= csv_obj['evolution'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
-						<td><%= csv_obj['knowledge'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
-						<td><%= csv_obj['newsworthiness'] %><span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
-						<td><%= csv_obj['sentiment'] %> 	<span class="change increase">(+<%= 20 + rand(60) %>%)</span></td>
-						<td><%= csv_obj['total'] %> 		<span class="change increase">(+<%= 50 + rand(30) %>%)</span></td>
+						<td><%= link_to rising[1][:technology].capitalize, "/#{full_category(rising[1][:category])}/technology/#{rising[1][:technology]}" %></td>
+						<td><%= rising[1][:adoption] %> 		<span class="change increase">(+<%= 1 + rand(10) %>%)</span></td>
+						<td><%= rising[1][:evolution] %> 	<span class="change increase">(+<%= 1 + rand(10) %>%)</span></td>
+						<td><%= rising[1][:knowledge] %> 	<span class="change increase">(+<%= 1 + rand(10) %>%)</span></td>
+						<td><%= rising[1][:newsvalue] %><span class="change increase">(+<%= 1 + rand(10) %>%)</span></td>
+						<td><%= rising[1][:sentiment] %> 	<span class="change increase">(+<%= 1 + rand(10) %>%)</span></td>
+						<td><%= rising[1][:total] %> 		<span class="change increase">(+<%= rising[1][:increase] %>%)</span></td>
 						<td>
 							<% (1...2 + rand(4)).each do |value| %>
 								<div class="arrow up"></div>

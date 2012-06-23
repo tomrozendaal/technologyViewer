@@ -52,10 +52,10 @@
 						        <h3>Sentiment</h3>
 						        <table>
 					           		<tr><td>Rating:</td><td><%= @tech_data['sentiment'] %></td></tr>
-					           		<tr><td>Positive mentions:</td><td>124</td></tr>
-					           		<tr><td>Neutral mentions:</td><td>472</td></tr>
-					           		<tr><td>Negative mentions:</td><td>14</td></tr>
-					           		<tr><td>Positive ratio:</td><td><%= @tech_data['ratio'] %>:1</td></tr>
+					           		<tr><td>Positive mentions:</td><td><%= @tech_data['positive_mes'] %></td></tr>
+					           		<tr><td>Neutral mentions:</td><td><%= @tech_data['neutral_mes'] %></td></tr>
+					           		<tr><td>Negative mentions:</td><td><%= @tech_data['negative_mes'] %></td></tr>
+					           		<tr><td>Ratio:</td><td><%= @tech_data['ratio'] %></td></tr>
 					           	</table>
 					       </div>
 					       <div class="span1">&nbsp</div>

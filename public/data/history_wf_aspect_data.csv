@@ -1,0 +1,12 @@
+date,technology,category,parent,adoption,knowledge,sentiment,newsworthiness,evolution,total
+6/2012,ruby-on-rails,wf,ruby,253,113,10,557,88,465
+6/2012,codeigniter,wf,php,32,45,50,64,71,200
+6/2012,zend-framework,wf,php,49,67,-10,1,234,341
+6/2012,cakephp,wf,php,14,41,0,28,91,146
+6/2012,spring,wf,java,552,562,0,254,130,1245
+6/2012,yii,wf,php,6,26,-40,2,82,74
+6/2012,django,wf,python,78,61,10,181,98,248
+6/2012,pear,wf,php,2,56,20,0,143,222
+6/2012,symfony,wf,php,16,43,10,7,114,184
+6/2012,tapestry,wf,java,19,48,10,1,66,143
+6/2012,gwt,wf,java,91,35,-60,8,92,159
