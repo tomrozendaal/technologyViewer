@@ -73,7 +73,7 @@
 	                borderWidth: 0
 	            },
 	            series: [
-		            <% FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
+		            <% CSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj| %>
 		            	<%= "{ name: '#{csv_obj['technology']}', data: [#{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f * rand()}, #{csv_obj['total'].to_f}]}," %>
 		            <% end %>
 	            ]
