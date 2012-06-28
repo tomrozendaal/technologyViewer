@@ -5,7 +5,7 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'js-routes'
 gem 'jquery-rails'
 gem 'json'
-gem 'fastercsv' #
+#gem 'fastercsv' #
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
