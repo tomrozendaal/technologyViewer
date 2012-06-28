@@ -21,7 +21,7 @@ class PageController < ApplicationController
 		@total_knowledge = 0
 		@total_newsvalue = 0
 		@total_sentiment = 0
-		FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
+		CSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
 			@top_rated["#{csv_obj['technology']}".to_sym] = 
 				{
 					:adoption => Integer(csv_obj['adoption']), 
@@ -62,7 +62,7 @@ class PageController < ApplicationController
 		@total_knowledge = 0
 		@total_newsvalue = 0
 		@total_sentiment = 0
-		FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
+		CSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
 			@top_rated["#{csv_obj['technology']}".to_sym] = 
 				{
 					:adoption => Integer(csv_obj['adoption']), 
@@ -103,7 +103,7 @@ class PageController < ApplicationController
 		@total_knowledge = 0
 		@total_newsvalue = 0
 		@total_sentiment = 0
-		FasterCSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
+		CSV.foreach("public/#{@csv_file}", :headers => true) do |csv_obj|
 			@top_rated["#{csv_obj['technology']}".to_sym] = 
 				{
 					:adoption => Integer(csv_obj['adoption']), 
@@ -139,7 +139,7 @@ class PageController < ApplicationController
 		@tech_data = {}
 		
 		category = ""
-		FasterCSV.foreach("public/data/latest_metrics_data.csv", :headers => true) do |csv_obj|
+		CSV.foreach("public/data/latest_metrics_data.csv", :headers => true) do |csv_obj|
 			if csv_obj['technology'] == params[:tech]
 				# Adoption
 				@tech_data['jobs'] = ts csv_obj['job_amount']
@@ -173,7 +173,7 @@ class PageController < ApplicationController
 			end
 		end
 
-		FasterCSV.foreach("public/data/latest_#{category}_aspect_data.csv", :headers => true) do |csv_obj|
+		CSV.foreach("public/data/latest_#{category}_aspect_data.csv", :headers => true) do |csv_obj|
 			if csv_obj['technology'] == params[:tech]
 				@tech_data['adoption'] = csv_obj['adoption']
 				@tech_data['knowledge'] = csv_obj['knowledge']
@@ -196,7 +196,7 @@ class PageController < ApplicationController
 		query = params[:tech].downcase
 		query_found = false
 		query_category = ''
-		FasterCSV.foreach("public/data/technologies.csv", :headers => true) do |csv_obj|
+		CSV.foreach("public/data/technologies.csv", :headers => true) do |csv_obj|
 
 			if csv_obj['technology'] == query
 				query_found = true
@@ -218,7 +218,7 @@ class PageController < ApplicationController
 
 	def get_rising(file, latest)
 		rising_tech = Hash.new
-		FasterCSV.foreach("public/#{file}", :headers => true) do |history_tech|
+		CSV.foreach("public/#{file}", :headers => true) do |history_tech|
 			latest.each_with_index do |latest_tech, index|
 				if latest_tech[1][:technology] == history_tech['technology']
 					if latest_tech[1][:total].to_i > history_tech['total'].to_i 
@@ -244,7 +244,7 @@ class PageController < ApplicationController
 
 	def get_declining(file, latest)
 		declining_tech = Hash.new
-		FasterCSV.foreach("public/#{file}", :headers => true) do |history_tech|
+		CSV.foreach("public/#{file}", :headers => true) do |history_tech|
 			latest.each_with_index do |latest_tech, index|
 				if latest_tech[1][:technology] == history_tech['technology']
 					if latest_tech[1][:total].to_i < history_tech['total'].to_i 
